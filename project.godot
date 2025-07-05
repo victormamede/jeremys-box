@@ -28,8 +28,8 @@ gdscript/warnings/return_value_discarded=2
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=450
+window/size/viewport_width=400
+window/size/viewport_height=225
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"

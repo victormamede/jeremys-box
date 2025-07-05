@@ -8,7 +8,7 @@ _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAACOAgAAUklGRoYCAABXRUJQVlA4THk
 size_override = Vector2(128, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4anbu"]
-size = Vector2(10, 4)
+size = Vector2(8, 2)
 
 [sub_resource type="Animation" id="Animation_4anbu"]
 resource_name = "idle"
