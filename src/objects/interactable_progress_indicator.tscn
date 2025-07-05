@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccaihnur4q1b7"]
+
+[ext_resource type="Script" uid="uid://1no1ifomu2sx" path="res://src/objects/interactable_progress_indicator.gd" id="1_vctpe"]
+
+[node name="InteractableProgressIndicator" type="ProgressBar"]
+offset_right = 62.0
+offset_bottom = 8.0
+max_value = 1.0
+show_percentage = false
+script = ExtResource("1_vctpe")
