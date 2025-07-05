@@ -1,18 +1,18 @@
-[gd_scene load_steps=8 format=4 uid="uid://dnj1ej4q72lyj"]
+[gd_scene load_steps=9 format=4 uid="uid://dnj1ej4q72lyj"]
 
 [ext_resource type="Script" uid="uid://6f1srypqkbm1" path="res://src/player/player.gd" id="1_rxibo"]
 [ext_resource type="Script" uid="uid://cj3ifb3uogun3" path="res://src/player/interactor.gd" id="2_rxibo"]
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_4anbu"]
-_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAIAAAAD4AAAAUklGRvAAAABXRUJQVlA4TOQAAAAvP8AfEB8gIEnc3H/ohkAgyZ9ykwUCSTb7Ez7/AfirAHJDsXUbAhyAq3QDDupV+uEGnsM3Ar0SfgfJYv7niP5PgLzj9Fn6DGYwCdAhQC/swoYEHxL8NgUMBbyG72M7h+9jO29TwFDAe0rwIcEnljOrmcZMsxUX8jlYJ7VTHStZC/PO3sIacgO9V0kHfThrRG/3CRqTnAWak4JG7j4shsqnnN6BRoC2bC3B71PAa/k+tvM+Bby3BG94diw+DZVG9eRetFyEVi2FPYSupInkmj5C2D3+O8Hgd5Ahl0pE0la+RCTkhQI=")
-size_override = Vector2(64, 128)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_rxibo"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAACOAgAAUklGRoYCAABXRUJQVlA4THkCAAAvf8AXEH+gNpLUBtt/aeTQAfIm1agNBZGkNo8BbGABv5jAQ0mio0uI0kiSlNWXf0wXx0l6ZvcCgiL/RwsAAPD/n4VyYQdLsNgWuj9zVgCE+s45PVruW3QQSJX/v40cwbtLPFve4Aq7CcoD1P+GBRqa7SxLwUELf6kOXCPT9CxLMb17gV40Yne831lHPOPd+f/9V3pCIvrPyG0bR5qtN055hflLH48K60RHJDt1rs/WuUh26J08y8WJkx16J8+KN5LNSHYEdfaImjgCOgu7SisbsiOoMzmg/QaOsM4B9bdkR0jn2MZEzsiOgE4zBGAaONTO7+p4UjfzoztG+lpsmej0DULJVwGlUXUIVLzLi/M0qcQ4BDxfjupGi3ekKI2qHJngPPSHJ0ZyZAK0qhmy87/ueFRYJzvUzojvs3Uukh16J89yceJkh97Js+KNZDOSHUGdPaImjoDOwq7SyobsCOpMDmi/gSOsc0D9LdkR0jm2MZEzsiOg0wwBmAaOkM4ndTPyPPROqdGM7ArqzOpaoec1aqnyDZwo+SqgNGyHQMl3KM9DdJgUAuMGkPPdQFV53pGiNKoOTw695DB5S3JdF6BVzfivPT5b5yKuR4Vzju3txPVh7odLcMaJ46eRbG5GXI+nXHK8M95IOOijIum52DVwaVpeoKUFtoXbtLAmuzQVy/O0NM80Lrq3qbsmu1RdE+Y1tlMP2aVpbAfU32Kd9+/SgGV+m3LNqSKiDbZ7RMQ35VKduyEA3gFghj93TwG8VfVEgr6qA9/E9fpHrxRLxUpdHkCLLQVKvonrk6o8FZyHHmjxTVxvf+gO/WHGQ/NW7vku/WVW//yNDgMA")
+size_override = Vector2(128, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4anbu"]
-size = Vector2(18, 8)
+size = Vector2(10, 4)
 
 [sub_resource type="Animation" id="Animation_4anbu"]
 resource_name = "idle"
-length = 0.1
+length = 0.15
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -24,12 +24,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_rxibo"]
 resource_name = "walk"
-length = 0.2
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,15 +38,32 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_mf2ua"]
+length = 0.21
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 9, 10]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mf2ua"]
 _data = {
 &"idle": SubResource("Animation_4anbu"),
+&"scared": SubResource("Animation_mf2ua"),
 &"walk": SubResource("Animation_rxibo")
 }
 
@@ -61,10 +78,10 @@ script = ExtResource("2_rxibo")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -27)
-texture = SubResource("PortableCompressedTexture2D_4anbu")
-hframes = 2
-vframes = 2
+position = Vector2(0, -9)
+texture = SubResource("PortableCompressedTexture2D_rxibo")
+hframes = 4
+vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -85,7 +102,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://src/player/_assets/player.aseprite",
 "source_uid": 9106193917816465324
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f4f96122ccb721ce4e7bea034673bb7c"
+metadata/_aseprite_wizard_source_file_hash_ = "53a56e8917cb0801bf3eb4c2bb7f7868"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4anbu")

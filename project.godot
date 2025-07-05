@@ -43,6 +43,12 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://src/": "red"
+}
+
 [global_group]
 
 interactables=""
