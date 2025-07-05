@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://18138x2kx1fp" path="res://src/coordinator.gd" id="4_3cfgd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5q4o7"]
-vertices = PackedVector2Array(-197, -148, -197, -182, 312, -182, 312, 182, -308, 182, -295, -148, -308, -182, -295, -182)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7)])
+vertices = PackedVector2Array(-197, -148, -197, -182, 312, -182, 312, -106, 120, -106, 120, -54, 312, -54, 312, 182, -84, 106, -84, 54, -308, 182, -308, 106, -308, 54, -308, -182, -295, -182, -295, -148)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(7, 10, 11, 8), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(9, 12, 15, 0, 4, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-352, -229, 349, -219, 346, 217, -351, 221)])
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3cfgd"]
