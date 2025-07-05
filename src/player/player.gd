@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
         _animation_player.current_animation = "idle"
     else:
         _animation_player.current_animation = "walk"
-        _sprite.flip_h = velocity.x > 0
+        _sprite.flip_h = velocity.x < 0
 
 func _physics_process(delta: float) -> void:
     if not _navigation_agent.is_navigation_finished():
