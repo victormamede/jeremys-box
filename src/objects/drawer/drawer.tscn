@@ -30,7 +30,7 @@ offset_bottom = -27.0
 interactable = NodePath("../Interactable")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -9.96582)
+position = Vector2(0.996552, -7.97265)
 texture = SubResource("AtlasTexture_fi46f")
 
 [node name="Interactable" parent="." instance=ExtResource("1_02dl4")]
