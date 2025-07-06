@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://bncktdpwdiyek"]
+[gd_scene load_steps=18 format=4 uid="uid://bncktdpwdiyek"]
 
+[ext_resource type="Script" uid="uid://mx43ksaw1jap" path="res://src/scenes/cinematic.gd" id="1_3old3"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_44qx1"]
 [ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="2_6enyy"]
+[ext_resource type="PackedScene" uid="uid://bltlxp1wnddiv" path="res://src/scenes/room.tscn" id="2_a8pbs"]
+[ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="10_46vqm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3cfgd"]
 rough = true
@@ -159,6 +162,10 @@ atlas = ExtResource("1_44qx1")
 region = Rect2(48, 176, 16, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dkejk"]
+shader = ExtResource("10_46vqm")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c46gk"]
 
@@ -295,6 +302,8 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_3old3")
+next_scene = ExtResource("2_a8pbs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAEAAQADAAgAAAAEAAAAAQADAAgAAAAEAP//AQADAAgAAAAEAP7/AQANAAwAAAAEAP3/AQANAAsAAAADAAEAAQACAAgAAAADAAAAAQACAAgAAAADAP//AQACAAgAAAADAP7/AQANAAwAAAADAP3/AQANAAsAAAACAAEAAQACAAgAAAACAAAAAQACAAgAAAACAP//AQACAAgAAAACAP7/AQANAAwAAAACAP3/AQANAAsAAAABAAEAAQACAAgAAAABAAAAAQACAAgAAAABAP//AQACAAgAAAABAP7/AQANAAwAAAABAP3/AQANAAsAAAAAAAEAAQACAAgAAAAAAAAAAQACAAgAAAAAAP//AQACAAgAAAAAAP7/AQANAAwAAAAAAP3/AQANAAsAAAD//wEAAQACAAgAAAD//wAAAQACAAgAAAD/////AQACAAgAAAD///7/AQANAAwAAAD///3/AQANAAsAAAD+/wEAAQACAAgAAAD+/wAAAQACAAgAAAD+////AQACAAgAAAD+//7/AQANAAwAAAD+//3/AQANAAsAAAD9/wEAAQACAAgAAAD9/wAAAQACAAgAAAD9////AQACAAgAAAD9//7/AQANAAwAAAD9//3/AQANAAsAAAD8/wEAAQACAAgAAAD8/wAAAQACAAgAAAD8////AQACAAgAAAD8//7/AQANAAwAAAD8//3/AQANAAsAAAD7/wEAAQABAAgAAAD7/wAAAQABAAgAAAD7////AQABAAgAAAD7//7/AQANAAwAAAD7//3/AQANAAsAAAAEAAIAAQADAAkAAAADAAIAAQACAAkAAAACAAIAAQACAAkAAAABAAIAAQACAAkAAAAAAAIAAQACAAkAAAD//wIAAQACAAkAAAD+/wIAAQACAAkAAAD9/wIAAQACAAkAAAD8/wIAAQACAAkAAAD7/wIAAQABAAkAAAD6/wMAAQALAA0AAAD6/wIAAQAJAAwAAAD6/wEAAQAJAAwAAAD6/wAAAQAJAAwAAAD6////AQAJAAwAAAD6//7/AQAJAAwAAAD6//3/AQAJAAwAAAD6//z/AQALAAwAAAAFAAMAAQAMAA0AAAAEAAMAAQALAAsAAAADAAMAAQALAAsAAAACAAMAAQALAAsAAAABAAMAAQALAAsAAAAAAAMAAQALAAsAAAD//wMAAQALAAsAAAD+/wMAAQALAAsAAAD9/wMAAQALAAsAAAD8/wMAAQALAAsAAAD7/wMAAQALAAsAAAAFAPz/AQAMAAwAAAAFAP3/AQAJAAwAAAAFAP7/AQAJAAwAAAAFAP//AQAJAAwAAAAFAAAAAQAJAAwAAAAFAAEAAQAJAAwAAAAFAAIAAQAJAAwAAAD7//z/AQALAAsAAAD8//z/AQALAAsAAAD9//z/AQALAAsAAAD+//z/AQALAAsAAAD///z/AQALAAsAAAAAAPz/AQALAAsAAAABAPz/AQALAAsAAAACAPz/AQALAAsAAAADAPz/AQALAAsAAAAEAPz/AQALAAsAAAA=")
@@ -314,7 +323,6 @@ texture = SubResource("AtlasTexture_c6352")
 position = Vector2(-72, 18)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Vignette" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_dkejk")
