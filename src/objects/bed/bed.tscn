@@ -8,13 +8,13 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
 atlas = ExtResource("5_t1myh")
-region = Rect2(144, 16, 32, 32)
+region = Rect2(144, 16, 48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3x2q"]
-size = Vector2(17.7572, 28.9009)
+size = Vector2(25.6491, 44.8462)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
-size = Vector2(17.9379, 21.9795)
+size = Vector2(23.5658, 33.8291)
 
 [node name="Bed" type="StaticBody2D"]
 scale = Vector2(1.01368, 1.00343)
@@ -30,13 +30,14 @@ offset_bottom = -27.0
 interactable = NodePath("../Interactable")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -4.98291)
+position = Vector2(1.97301, -4.98291)
 texture = SubResource("AtlasTexture_fi46f")
 
 [node name="Interactable" parent="." instance=ExtResource("3_r7b6x")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
-position = Vector2(8.82008e-07, -3.48804)
+position = Vector2(2.86102e-06, -5.4812)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i3x2q")
 debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
 
