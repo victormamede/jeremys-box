@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7dmylcitcvjq"]
 
 [ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_rm437"]
-[ext_resource type="Script" uid="uid://vtko7bi7o2v" path="res://src/scenes/main_menu.gd" id="2_mob6k"]
+[ext_resource type="Script" path="res://src/scenes/main_menu.gd" id="2_mob6k"]
 [ext_resource type="PackedScene" uid="uid://bncktdpwdiyek" path="res://src/scenes/entry_scene.tscn" id="3_rkeyg"]
 [ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="4_chlrs"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_yrdre"]
 [ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="5_yrdre"]
-[ext_resource type="Script" uid="uid://c4lnaoeh24nxe" path="res://src/scenes/vignette.gd" id="6_klrpn"]
+[ext_resource type="Script" path="res://src/scenes/vignette.gd" id="6_klrpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klrpn"]
 atlas = ExtResource("4_yrdre")
@@ -59,7 +59,7 @@ animation = 2
 position = Vector2(54, 65)
 scale = Vector2(11.2422, 11.2422)
 flip_h = true
-frame = 10
+frame = 9
 
 [node name="AnimationPlayer" parent="Player" index="1"]
 autoplay = "idle"
