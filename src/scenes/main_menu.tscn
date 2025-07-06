@@ -1,10 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7dmylcitcvjq"]
+[gd_scene load_steps=12 format=3 uid="uid://b7dmylcitcvjq"]
 
 [ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_rm437"]
-[ext_resource type="Script" path="res://src/scenes/main_menu.gd" id="2_mob6k"]
+[ext_resource type="Script" uid="uid://vtko7bi7o2v" path="res://src/scenes/main_menu.gd" id="2_mob6k"]
 [ext_resource type="PackedScene" uid="uid://bncktdpwdiyek" path="res://src/scenes/entry_scene.tscn" id="3_rkeyg"]
+[ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="4_chlrs"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_yrdre"]
+[ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="5_yrdre"]
+[ext_resource type="Script" uid="uid://c4lnaoeh24nxe" path="res://src/scenes/vignette.gd" id="6_klrpn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klrpn"]
+atlas = ExtResource("4_yrdre")
+region = Rect2(256, 112, 32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mob6k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ipax"]
+shader = ExtResource("5_yrdre")
+shader_parameter/vignette_intensity = 0.8
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0.0538649, 0.0734638, 0.108114, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n5k5b"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -30,8 +46,40 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Start Game"
 
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(229, 150)
+scale = Vector2(5.125, 5.125)
+texture = SubResource("AtlasTexture_klrpn")
+
+[node name="Player" parent="." instance=ExtResource("4_chlrs")]
+position = Vector2(261, 110)
+animation = 2
+
+[node name="PlayerSprite" parent="Player" index="0"]
+position = Vector2(54, 65)
+scale = Vector2(11.2422, 11.2422)
+flip_h = true
+
+[node name="AnimationPlayer" parent="Player" index="1"]
+autoplay = "idle"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Jeremy's Box"
 label_settings = SubResource("LabelSettings_mob6k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_1ipax")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_n5k5b")
+script = ExtResource("6_klrpn")
+
+[editable path="Player"]

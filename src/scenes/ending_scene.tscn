@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://catjy0hgudcyc"]
+[gd_scene load_steps=21 format=4 uid="uid://catjy0hgudcyc"]
 
 [ext_resource type="Script" uid="uid://mx43ksaw1jap" path="res://src/scenes/cinematic.gd" id="1_6rq4u"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_a0vpo"]
@@ -474,9 +474,47 @@ adjustment_enabled = true
 adjustment_contrast = 1.1
 adjustment_color_correction = SubResource("GradientTexture1D_dkejk")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6352"]
-atlas = ExtResource("1_a0vpo")
-region = Rect2(224, 144, 16, 16)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_al4qx"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAACAAAADQAAAAUklGRsgAAABXRUJQVlA4TLwAAAAvP8AHEEegGJIkZtdfag2OJf2iBpEABP+f+WCDRKWmkRToDvyLQBQi/pYSgmybMg70ig8A/n+Sybboqpye8gaTA9Pa2puEjmUDDhO0BeoA3aP+WFRikQz+/ylUG9F/Bm4bKUoWjm/gF+yR7hIb3Ya8DGbNZXeGFRsQjhMbGzMk2OAy8grr0TgInn7RPSnl7USEusf6+g/p+2AZB0B4cxzcKg6B87wvDg6WcWwAwi6ONMO6BnEQCUwfxy/IAA==")
+size_override = Vector2(64, 32)
+
+[sub_resource type="Animation" id="Animation_a8pbs"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3pvgp"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70gmu"]
+_data = {
+&"closed": SubResource("Animation_a8pbs"),
+&"opened": SubResource("Animation_3pvgp")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dkejk"]
 shader = ExtResource("3_6rq4u")
@@ -764,6 +802,7 @@ _data = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6rq4u")
+next_scene = "uid://b7dmylcitcvjq"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAEAAQADAAgAAAAEAAAAAQADAAgAAAAEAP//AQADAAgAAAAEAP7/AQANAAwAAAAEAP3/AQANAAsAAAADAAEAAQACAAgAAAADAAAAAQACAAgAAAADAP//AQACAAgAAAADAP7/AQANAAwAAAADAP3/AQANAAsAAAACAAEAAQACAAgAAAACAAAAAQACAAgAAAACAP//AQACAAgAAAACAP7/AQANAAwAAAACAP3/AQANAAsAAAABAAEAAQACAAgAAAABAAAAAQACAAgAAAABAP//AQACAAgAAAABAP7/AQANAAwAAAABAP3/AQANAAsAAAAAAAEAAQACAAgAAAAAAAAAAQACAAgAAAAAAP//AQACAAgAAAAAAP7/AQANAAwAAAAAAP3/AQANAAsAAAD//wEAAQACAAgAAAD//wAAAQACAAgAAAD/////AQACAAgAAAD///7/AQANAAwAAAD///3/AQANAAsAAAD+/wEAAQACAAgAAAD+/wAAAQACAAgAAAD+////AQACAAgAAAD+//7/AQANAAwAAAD+//3/AQANAAsAAAD9/wEAAQACAAgAAAD9/wAAAQACAAgAAAD9////AQACAAgAAAD9//7/AQANAAwAAAD9//3/AQANAAsAAAD8/wEAAQACAAgAAAD8/wAAAQACAAgAAAD8////AQACAAgAAAD8//7/AQANAAwAAAD8//3/AQANAAsAAAD7/wEAAQABAAgAAAD7/wAAAQABAAgAAAD7////AQABAAgAAAD7//7/AQANAAwAAAD7//3/AQANAAsAAAAEAAIAAQADAAkAAAADAAIAAQACAAkAAAACAAIAAQACAAkAAAABAAIAAQACAAkAAAAAAAIAAQACAAkAAAD//wIAAQACAAkAAAD+/wIAAQACAAkAAAD9/wIAAQACAAkAAAD8/wIAAQACAAkAAAD7/wIAAQABAAkAAAD6/wMAAQALAA0AAAD6/wIAAQAJAAwAAAD6/wEAAQAJAAwAAAD6/wAAAQAJAAwAAAD6////AQAJAAwAAAD6//7/AQAJAAwAAAD6//3/AQAJAAwAAAD6//z/AQALAAwAAAAFAAMAAQAMAA0AAAAEAAMAAQALAAsAAAADAAMAAQALAAsAAAACAAMAAQALAAsAAAABAAMAAQALAAsAAAAAAAMAAQALAAsAAAD//wMAAQALAAsAAAD+/wMAAQALAAsAAAD9/wMAAQALAAsAAAD8/wMAAQALAAsAAAD7/wMAAQALAAsAAAAFAPz/AQAMAAwAAAAFAP3/AQAJAAwAAAAFAP7/AQAJAAwAAAAFAP//AQAJAAwAAAAFAAAAAQAJAAwAAAAFAAEAAQAJAAwAAAAFAAIAAQAJAAwAAAD7//z/AQALAAsAAAD8//z/AQALAAsAAAD9//z/AQALAAsAAAD+//z/AQALAAsAAAD///z/AQALAAsAAAAAAPz/AQALAAsAAAABAPz/AQALAAsAAAACAPz/AQALAAsAAAADAPz/AQALAAsAAAAEAPz/AQALAAsAAAA=")
@@ -776,9 +815,39 @@ editor_draw_limits = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c46gk")
 
-[node name="Box" type="Sprite2D" parent="."]
-position = Vector2(27, 23)
-texture = SubResource("AtlasTexture_c6352")
+[node name="Box" type="Node2D" parent="."]
+position = Vector2(26.695, 21.695)
+
+[node name="Box" type="Sprite2D" parent="Box"]
+texture_filter = 1
+position = Vector2(0.305, 6.305)
+texture = SubResource("PortableCompressedTexture2D_al4qx")
+hframes = 2
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Box/AnimationPlayer",
+"slice": "",
+"source": "res://src/_assets/box.aseprite",
+"source_uid": 2769537881588286103
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f1c6cbe3cbd5d990e4d4edb20cbf8cc4"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Box"]
+libraries = {
+&"": SubResource("AnimationLibrary_70gmu")
+}
+autoplay = "opened"
 
 [node name="Player" parent="." instance=ExtResource("2_al4qx")]
 visible = false
