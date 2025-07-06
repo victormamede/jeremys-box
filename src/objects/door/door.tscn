@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnvf2ls0ki15j"]
+[gd_scene load_steps=10 format=3 uid="uid://dnvf2ls0ki15j"]
 
 [ext_resource type="Script" uid="uid://cac4eake3dbyi" path="res://src/objects/door/door.gd" id="1_53pg8"]
 [ext_resource type="Resource" uid="uid://bmefbs53syrct" path="res://src/objects/items/key.tres" id="2_53pg8"]
+[ext_resource type="PackedScene" uid="uid://catjy0hgudcyc" path="res://src/scenes/ending_scene.tscn" id="2_kc1ba"]
 [ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_bu1fh"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_l047r"]
 [ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="5_ppdnq"]
@@ -19,6 +20,7 @@ size = Vector2(23.9172, 7.97265)
 [node name="Door" type="StaticBody2D"]
 scale = Vector2(1.00346, 1.00343)
 script = ExtResource("1_53pg8")
+next_scene = ExtResource("2_kc1ba")
 required_item = ExtResource("2_53pg8")
 no_item_text = Array[String](["It's locked!"])
 
