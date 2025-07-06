@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _sprite: Sprite2D = $PlayerSprite
 @onready var _interactor: Interactor = $Interactor
+@onready var _inventory: Inventory = $Inventory
 
 var _target_interactable: Interactable = null
 var _next_position: Vector2 = Vector2.ZERO
@@ -39,14 +40,14 @@ func _process(_delta: float) -> void:
         _sprite.flip_h = velocity.x < 0
 
 func _physics_process(delta: float) -> void:
-    if not _navigation_agent.is_navigation_finished():
-        _next_position = _navigation_agent.get_next_path_position()
-
-    if is_stopped():
-        if _target_interactable != null and _target_interactable.overlaps_body(self):
+    if _navigation_agent.is_navigation_finished():
+        if _target_interactable != null and \
+            global_position.distance_squared_to(_target_interactable.global_position) <= \
+            _target_interactable.max_interaction_distance * _target_interactable.max_interaction_distance:
             _interact()
     else:
         _interactor.try_cancel_interaction()
+        _next_position = _navigation_agent.get_next_path_position()
 
     var target_velocity: Vector2 = Vector2.ZERO
 
@@ -59,3 +60,6 @@ func _physics_process(delta: float) -> void:
 
 func is_stopped() -> bool:
     return velocity.length_squared() < stop_threshold * stop_threshold
+
+func get_inventory() -> Inventory:
+    return _inventory

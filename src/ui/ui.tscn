@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://prdgxs8rsmlp"]
+[gd_scene load_steps=4 format=3 uid="uid://prdgxs8rsmlp"]
 
 [ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_8wxmc"]
 [ext_resource type="Script" uid="uid://xm2y8wdo38hy" path="res://src/ui/ui.gd" id="1_sjdex"]
-[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="2_sjdex"]
-[ext_resource type="Script" uid="uid://dkep2l7meulni" path="res://src/ui/item_display.gd" id="3_7abqo"]
-[ext_resource type="Resource" uid="uid://skxyhv1wwfom" path="res://src/items/lighter.tres" id="4_gucsq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbmbv"]
-atlas = ExtResource("2_sjdex")
-region = Rect2(64, 16, 16, 16)
+[ext_resource type="PackedScene" uid="uid://3t0t15q7xt5u" path="res://src/ui/item_display.tscn" id="2_qemve"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_sjdex")
+item_display_scene = ExtResource("2_qemve")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -19,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.987933)
 theme = ExtResource("1_8wxmc")
 
 [node name="ItemsContainer" type="HBoxContainer" parent="MarginContainer"]
@@ -26,11 +22,3 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-
-[node name="ItemDisplay" type="TextureRect" parent="MarginContainer/ItemsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = SubResource("AtlasTexture_fbmbv")
-script = ExtResource("3_7abqo")
-item = ExtResource("4_gucsq")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://tmx1vg3t77qx"]
+
+[ext_resource type="Script" uid="uid://7fdigauq51es" path="res://src/objects/items/collectible.gd" id="1_iru2y"]
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="2_y2bw7"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_6bso8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2bw7"]
+size = Vector2(16, 16)
+
+[node name="Collectible" type="Node2D"]
+script = ExtResource("1_iru2y")
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_6bso8")]
+z_index = 1
+offset_left = -36.0
+offset_top = -15.0
+offset_right = 36.0
+offset_bottom = -11.0
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Interactable" parent="." instance=ExtResource("2_y2bw7")]
+interaction_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_y2bw7")
+debug_color = Color(0.783135, 0.43474, 3.85046e-07, 0.42)

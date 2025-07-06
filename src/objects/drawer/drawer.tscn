@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://ncyay0n6u1ln"]
+
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="1_02dl4"]
+[ext_resource type="Script" uid="uid://ccu3auyybpol6" path="res://src/objects/drawer/drawer.gd" id="1_l6do1"]
+[ext_resource type="Resource" uid="uid://skxyhv1wwfom" path="res://src/objects/items/lighter.tres" id="2_cu0il"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_wyk4x"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="5_huflw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
+atlas = ExtResource("5_huflw")
+region = Rect2(144, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huflw"]
+size = Vector2(23.9172, 24.9146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
+size = Vector2(23.9172, 7.97265)
+
+[node name="Drawer" type="StaticBody2D"]
+scale = Vector2(1.00346, 1.00343)
+script = ExtResource("1_l6do1")
+item = ExtResource("2_cu0il")
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_wyk4x")]
+z_index = 1
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = -27.0
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.96582)
+texture = SubResource("AtlasTexture_fi46f")
+
+[node name="Interactable" parent="." instance=ExtResource("1_02dl4")]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -8.47095)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_huflw")
+debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_02dl4")

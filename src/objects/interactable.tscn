@@ -1,17 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://btmvaypfw8m8l"]
+[gd_scene load_steps=2 format=3 uid="uid://btmvaypfw8m8l"]
 
 [ext_resource type="Script" uid="uid://b4suqhmly0ogx" path="res://src/objects/interactable.gd" id="1_5mkxg"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_f0f81"]
-radius = 30.0
 
 [node name="Interactable" type="Area2D" groups=["interactables"]]
 collision_layer = 8
 script = ExtResource("1_5mkxg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_f0f81")
-debug_color = Color(0.631277, 0.520201, 0.276287, 0.42)
+max_interaction_distance = 48.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

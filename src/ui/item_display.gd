@@ -1,12 +1,13 @@
-extends TextureRect
+class_name ItemDisplay
+extends Control
 
-@export var item: Item:
+@onready var _texture: TextureRect = %Texture
+
+var item: Item = null:
     set(value):
         item = value
-        _recalculate()
-    
-func _recalculate() -> void:
-    if item != null:
-        texture = item.texture
-    else:
-        texture = null
+
+        if item != null:
+            _texture.texture = item.texture
+        else:
+            _texture.texture = null

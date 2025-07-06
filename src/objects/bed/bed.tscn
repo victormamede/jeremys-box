@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://nlj7i32av4t0"]
+
+[ext_resource type="Script" uid="uid://gv8ym6mxd0hw" path="res://src/objects/bed/bed.gd" id="1_585cj"]
+[ext_resource type="PackedScene" uid="uid://b0n3uo7hu6ude" path="res://src/objects/bed/bed_drop.tscn" id="2_i3x2q"]
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="3_r7b6x"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="4_a7o5x"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="5_t1myh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
+atlas = ExtResource("5_t1myh")
+region = Rect2(144, 16, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3x2q"]
+size = Vector2(17.7572, 28.9009)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
+size = Vector2(17.9379, 21.9795)
+
+[node name="Bed" type="StaticBody2D"]
+scale = Vector2(1.01368, 1.00343)
+script = ExtResource("1_585cj")
+drop = ExtResource("2_i3x2q")
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("4_a7o5x")]
+z_index = 1
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = -27.0
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4.98291)
+texture = SubResource("AtlasTexture_fi46f")
+
+[node name="Interactable" parent="." instance=ExtResource("3_r7b6x")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(8.82008e-07, -3.48804)
+shape = SubResource("RectangleShape2D_i3x2q")
+debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0551699, 0.0273458)
+scale = Vector2(1, 0.999999)
+shape = SubResource("RectangleShape2D_02dl4")
+
+[node name="DropTarget" type="Marker2D" parent="."]
+position = Vector2(0, 28.9009)

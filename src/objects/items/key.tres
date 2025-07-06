@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bmefbs53syrct"]
+
+[ext_resource type="Script" uid="uid://cw1pc34hmbof8" path="res://src/objects/items/item.gd" id="1_53nxm"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="2_73dmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbmbv"]
+atlas = ExtResource("2_73dmp")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_53nxm")
+name = "Key"
+texture = SubResource("AtlasTexture_fbmbv")
+metadata/_custom_type_script = "uid://cw1pc34hmbof8"
