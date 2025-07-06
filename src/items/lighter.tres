@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://skxyhv1wwfom"]
+
+[ext_resource type="Script" uid="uid://cw1pc34hmbof8" path="res://src/items/item.gd" id="1_acxyi"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="2_nno0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbmbv"]
+atlas = ExtResource("2_nno0d")
+region = Rect2(64, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_acxyi")
+name = "Lighter"
+texture = SubResource("AtlasTexture_fbmbv")
+metadata/_custom_type_script = "uid://cw1pc34hmbof8"

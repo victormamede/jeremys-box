@@ -1,9 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://dnj1ej4q72lyj"]
+[gd_scene load_steps=16 format=4 uid="uid://dnj1ej4q72lyj"]
 
 [ext_resource type="Script" uid="uid://6f1srypqkbm1" path="res://src/player/player.gd" id="1_rxibo"]
 [ext_resource type="Script" uid="uid://cj3ifb3uogun3" path="res://src/player/interactor.gd" id="2_rxibo"]
 [ext_resource type="Script" uid="uid://duvyqnp17skis" path="res://src/player/inventory.gd" id="3_244u8"]
 [ext_resource type="Script" uid="uid://cw1pc34hmbof8" path="res://src/items/item.gd" id="4_5f2sf"]
+[ext_resource type="Resource" uid="uid://skxyhv1wwfom" path="res://src/items/lighter.tres" id="5_5f2sf"]
+[ext_resource type="Script" uid="uid://dkep2l7meulni" path="res://src/ui/item_display.gd" id="6_jiejy"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="6_o822w"]
+[ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="6_x42xx"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_244u8"]
 _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAADaAgAAUklGRtICAABXRUJQVlA4TMYCAAAvf8AXEH+gNpLUBtt/aeTQAfIm1agNBZGkNo8BbGABv5jAQ0mio0uI0kiSlNWXf0wXx0l6ZvcCgiL/RwsAAPD/n4VyYQdLsNgWuj9zVgCE+s45PVruW3QQSJUA2I2bt9TorZFTNHJjniB/QNpeWKCgmOdY2ieYrZEmzIduTMMOpYjaP9CL5jH7A9IlpIl0s6t96QmJ6D8jt20cabZcOe0T7i9teERUHWB2gtyLsgqgORLQnRaXf12FkOgOu1NmhSwPoDvsTpGVHecnie6I6hwRDXFEdJbVAe0f646ozvyargY44jrHtHWqOyI63azKiALojohOv83M6HRHRKfrgwEOy7x2upZ+dMeuvVRsojqbIdVyLXMNltx75lZ2Ndo8HRYdQ3M28rym3N5NZUehzNP5PsU5kZ3uffP+I2iOiQJtO4bJ6dGjUx0gQ7Bj6M7/OsMjou4wO0HuRVkF0B1WZwIi63UVQqI77E6ZFbI8gO6wO0VWdpyfJLojqnNENMQR0VlWB7R/rDuiOvNruhrgiOsc09ap7ojodLMqIwqgOyI6/TYzo9MdMZ07XUtOGn3gzE6t3SXdFdU56UrN89JLTTVDnLVcy1yDk8Z75jqVHYPmIbuwYJnh7zJPU8XRtg2IjkKbp9dy7z++b0Bx4DTVXJupXLup5NGj5nAIqgtkGHaM/1oDUbnYvncMcFnyr6sQEqkXZQgBpG7OuRZ+uBRnlgcQp5GfnCQDXKZ/dpyfJBIzH4UsgO6ytLFK66tiqw9o9RBUl6VyY4XWV4Rm5eIDWvyW6jJ1R5nXrJr/qK4hSdAxbZ2KziePaJwMcJkiomOxx0SU6C5LfpuZxYOOzLwkn7vetbdgaaeHSr3sYrk5149erVao1bYaZk7FCuZabs5laloozvdNPw2x3rX3AyZD309SeR7ptAGpV3MuUx49guhAQBzi+isZDg==")
@@ -69,10 +73,9 @@ _data = {
 &"walk": SubResource("Animation_rxibo")
 }
 
-[sub_resource type="Resource" id="Resource_jiejy"]
-script = ExtResource("4_5f2sf")
-name = ""
-metadata/_custom_type_script = "uid://cw1pc34hmbof8"
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbmbv"]
+atlas = ExtResource("6_o822w")
+region = Rect2(64, 16, 16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 9
@@ -126,4 +129,27 @@ libraries = {
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("3_244u8")
-items = Array[ExtResource("4_5f2sf")]([SubResource("Resource_jiejy")])
+items = Array[ExtResource("4_5f2sf")]([ExtResource("5_5f2sf")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_x42xx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="ItemDisplay" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_fbmbv")
+script = ExtResource("6_jiejy")
+item = ExtResource("5_5f2sf")
