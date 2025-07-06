@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnvf2ls0ki15j"]
+
+[ext_resource type="Script" uid="uid://cac4eake3dbyi" path="res://src/objects/door/door.gd" id="1_53pg8"]
+[ext_resource type="Resource" uid="uid://bmefbs53syrct" path="res://src/objects/items/key.tres" id="2_53pg8"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_bu1fh"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_l047r"]
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="5_ppdnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
+atlas = ExtResource("4_l047r")
+region = Rect2(144, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huflw"]
+size = Vector2(23.9172, 24.9146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
+size = Vector2(23.9172, 7.97265)
+
+[node name="Door" type="StaticBody2D"]
+scale = Vector2(1.00346, 1.00343)
+script = ExtResource("1_53pg8")
+required_item = ExtResource("2_53pg8")
+no_item_text = Array[String](["It's locked!"])
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_bu1fh")]
+z_index = 1
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = -27.0
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.96582)
+texture = SubResource("AtlasTexture_fi46f")
+
+[node name="Interactable" parent="." instance=ExtResource("5_ppdnq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -8.47095)
+shape = SubResource("RectangleShape2D_huflw")
+debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_02dl4")
