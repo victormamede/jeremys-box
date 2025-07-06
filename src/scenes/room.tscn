@@ -470,6 +470,81 @@ texture = ExtResource("1_3cfgd")
 14:3/0 = 0
 13:3/0 = 0
 12:3/0 = 0
+12:9/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+13:9/0 = 0
+14:10/0 = 0
+14:9/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+16:9/0 = 0
+15:9/0 = 0
+15:11/0 = 0
+15:12/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+16:12/0 = 0
+16:11/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+11:16/0 = 0
+10:16/0 = 0
+9:16/0 = 0
+10:14/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+14:16/0 = 0
+13:16/0 = 0
+12:16/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+15:16/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+16:16/0 = 0
+16:17/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+7:16/0 = 0
+6:16/0 = 0
+5:16/0 = 0
+3:15/0 = 0
+2:15/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:15/0 = 0
+4:14/0 = 0
+4:16/0 = 0
+3:16/0 = 0
+2:16/0 = 0
+14:6/0 = 0
+12:6/0 = 0
+14:5/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+15:5/0 = 0
+16:2/0 = 0
+15:2/0 = 0
+11:4/0 = 0
+11:17/0 = 0
+11:14/0 = 0
+8:11/0 = 0
+10:17/0 = 0
+9:17/0 = 0
+8:17/0 = 0
+7:17/0 = 0
+6:17/0 = 0
+5:17/0 = 0
+4:17/0 = 0
+5:13/0 = 0
+8:13/0 = 0
+7:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kmhfv"]
 physics_layer_0/collision_layer = 1
@@ -656,7 +731,7 @@ tile_set = SubResource("TileSet_kmhfv")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="NavigationRegion2D"]
 position = Vector2(2, 0)
-tile_map_data = PackedByteArray("AAD7//v/AQAIAAEAAAD3//v/AQANAAYAAAD2//v/AQANAAYAAAD8//r/AQABAAwAAAD8//v/AQABAA0AAAD9//r/AQACAAwAAAD9//v/AQACAA0AAAD+//r/AQADAAwAAAD+//v/AQADAA0AAAABAPr/AQABAAwAAAABAPv/AQABAA0AAAACAPr/AQACAAwAAAACAPv/AQACAA0AAAADAPr/AQADAAwAAAADAPv/AQADAA0AAAD4//7/AQAFAAsAAAD4////AQAFAAwAAAD5//7/AQAGAAsAAAD5////AQAGAAwAAAD6//7/AQAHAAsAAAD6////AQAHAAwAAAD3/wQAAQABAAsAAAD4/wQAAQADAAsAAAD///3/AQABAAsAAAAAAP3/AQABAAsAAAA=")
+tile_map_data = PackedByteArray("AAD4/wQAAQAOAAkAAAD///3/AQABAAsAAAAAAP3/AQABAAsAAAD2//v/AQANAAYAAAD3//v/AQAOAAYAAAD8//v/AQABAAwAAAD8//z/AQABAA0AAAD9//v/AQACAAwAAAD9//z/AQACAA0AAAD+//v/AQADAAwAAAD+//z/AQADAA0AAAACAPv/AQABAAwAAAACAPz/AQABAA0AAAADAPv/AQACAAwAAAADAPz/AQACAA0AAAAEAPv/AQADAAwAAAAEAPz/AQADAA0AAAD4//v/AQAQAAIAAAD5//r/AQAPAAIAAAD5//v/AQAIAAEAAAD2/wAAAQAPAAsAAAD2/wEAAQAPAAwAAAD2/wIAAQAPAA0AAAD3/wAAAQAQAAsAAAD3/wEAAQAQAAwAAAD3/wIAAQAQAA0AAAD+////AQAFAAsAAAD+/wAAAQAFAAwAAAD+/wEAAQAFAA0AAAD/////AQAGAAsAAAD//wAAAQAGAAwAAAD//wEAAQAGAA0AAAAAAP//AQAHAAsAAAAAAAAAAQAHAAwAAAAAAAEAAQAHAA0AAAD2/wQAAQAMAAkAAAD2/wUAAQAMAAoAAAD3/wQAAQANAAkAAAD3/wUAAQANAAoAAAD4/wUAAQAOAAoAAAD5/wQAAQAPAAkAAAD5/wUAAQAPAAoAAAD6/wQAAQAQAAkAAAD6/wUAAQAQAAoAAAA=")
 tile_set = SubResource("TileSet_kmhfv")
 
 [node name="Sorting" type="Node2D" parent="NavigationRegion2D"]
@@ -666,20 +741,20 @@ y_sort_enabled = true
 position = Vector2(114, 17)
 
 [node name="Drawer2" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_5mrjc")]
-position = Vector2(-97, -40)
+position = Vector2(10, -39)
 
 [node name="Drawer" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_rlaii")]
-position = Vector2(-117, -41)
+position = Vector2(-111, -40)
 
 [node name="Poster" parent="NavigationRegion2D/Sorting" instance=ExtResource("3_3cfgd")]
-position = Vector2(-97, -61)
+position = Vector2(-78, -58)
 
 [node name="Player" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_5q4o7")]
 visible = false
 position = Vector2(-86, 50)
 
 [node name="Bed" parent="NavigationRegion2D/Sorting" instance=ExtResource("5_kmhfv")]
-position = Vector2(-144, -29)
+position = Vector2(-140, -29)
 
 [node name="FlowerPot" parent="NavigationRegion2D/Sorting" instance=ExtResource("6_rlaii")]
 position = Vector2(138, 84)
@@ -708,6 +783,7 @@ autoplay = "start"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Vignette" type="TextureRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_dkejk")
 anchors_preset = 15
 anchor_right = 1.0
