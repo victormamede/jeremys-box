@@ -1,26 +1,57 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnvf2ls0ki15j"]
+[gd_scene load_steps=10 format=4 uid="uid://dnvf2ls0ki15j"]
 
 [ext_resource type="Script" uid="uid://cac4eake3dbyi" path="res://src/objects/door/door.gd" id="1_53pg8"]
 [ext_resource type="Resource" uid="uid://bmefbs53syrct" path="res://src/objects/items/key.tres" id="2_53pg8"]
-[ext_resource type="PackedScene" uid="uid://catjy0hgudcyc" path="res://src/scenes/ending_scene.tscn" id="2_kc1ba"]
 [ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_bu1fh"]
-[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_l047r"]
 [ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="5_ppdnq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
-atlas = ExtResource("4_l047r")
-region = Rect2(144, 64, 32, 32)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_53pg8"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAAB8AQAAUklGRnQBAABXRUJQVlA4TGgBAAAvf8AXEEegJgASNksJOMFx2UAljSQx5+Hg8y6h+bf0TFEbKdAqWOB5Iw55mJz/AADAvUI1Lgrd/7lekge4jSTLbh7ACDYE/Qh47rcfsA+gqysV0panuMl92+/QLSei/47ctpEkGujTpu6ZV6SUDvU2KaUZHdvLtZrO6lgP1dZpHeZ3rEnGDsnYIRJ3vJTX+zHCHRk7xHV0eBzwHn9N3s/k7YzOH50ZyYbss5yiSJEi9RQpUqS/D+aUQPYdqKASsTuLYIf4DmQRtxB2CHe4sNDwThGy+O2jLu54wA4JO9Kh3mZSx/ZyraazOtZDtXVah9yWzY5xh+SxHe6fyR2gt+MVPbLMHcOV/xGKFClST5EiRfpbUVBBBRVkyJAhC9ltsYwdkrmju5NJ7u6QZdkHXMi4jnSotxnQ0bbt5VpN+ztarYdqa39HM/E/xLEmftyx61Re/4EpUqStFCnS35Iync1mn54se7QfIgE=")
+size_override = Vector2(128, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huflw"]
-size = Vector2(23.9172, 24.9146)
+size = Vector2(20.9276, 31.8906)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
-size = Vector2(23.9172, 7.97265)
+[sub_resource type="Animation" id="Animation_kc1ba"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[node name="Door" type="StaticBody2D"]
+[sub_resource type="Animation" id="Animation_k7uv8"]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n051y"]
+_data = {
+&"opening": SubResource("Animation_k7uv8"),
+&"static": SubResource("Animation_kc1ba")
+}
+
+[node name="Door" type="Node2D"]
 scale = Vector2(1.00346, 1.00343)
 script = ExtResource("1_53pg8")
-next_scene = ExtResource("2_kc1ba")
 required_item = ExtResource("2_53pg8")
 no_item_text = Array[String](["It's locked!"])
 
@@ -33,15 +64,41 @@ offset_bottom = -27.0
 interactable = NodePath("../Interactable")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -9.96582)
-texture = SubResource("AtlasTexture_fi46f")
+texture_filter = 1
+position = Vector2(0, -15.9453)
+texture = SubResource("PortableCompressedTexture2D_53pg8")
+hframes = 4
+vframes = 3
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://src/objects/door/_assets/door.aseprite",
+"source_uid": 7758027800012235850
+}
+metadata/_aseprite_wizard_source_file_hash_ = "7094fc6416f1bff6077be468720cf03e"
 
 [node name="Interactable" parent="." instance=ExtResource("5_ppdnq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
-position = Vector2(0, -8.47095)
+position = Vector2(-0.498276, -15.9453)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_huflw")
 debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_02dl4")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n051y")
+}
+autoplay = "static"

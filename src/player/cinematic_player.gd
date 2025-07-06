@@ -1,4 +1,5 @@
 @tool
+class_name CinematicPlayer
 extends Node2D
 
 enum PlayerAnimation {IDLE, WALKING, SCARED, LYING}
@@ -9,20 +10,15 @@ enum PlayerAnimation {IDLE, WALKING, SCARED, LYING}
 
         if not is_node_ready():
             return
-
-        match (animation):
-            PlayerAnimation.IDLE:
-                _animation_player.current_animation = "idle"
-            PlayerAnimation.WALKING:
-                _animation_player.current_animation = "walk"
-            PlayerAnimation.SCARED:
-                _animation_player.current_animation = "scared"
-            PlayerAnimation.LYING:
-                _animation_player.current_animation = "lying"
+        
+        _refresh_animation()
 
 
 @onready var _bubble: Bubble = $Bubble
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+    _refresh_animation()
 
 func get_bubble() -> Bubble:
     return _bubble
@@ -32,3 +28,14 @@ func say(text: String, speed: float = 0.0) -> void:
         _bubble.set_character_speed(speed)
 
     _bubble.say([text])
+
+func _refresh_animation() -> void:
+    match (animation):
+        PlayerAnimation.IDLE:
+            _animation_player.current_animation = "idle"
+        PlayerAnimation.WALKING:
+            _animation_player.current_animation = "walk"
+        PlayerAnimation.SCARED:
+            _animation_player.current_animation = "scared"
+        PlayerAnimation.LYING:
+            _animation_player.current_animation = "lying"

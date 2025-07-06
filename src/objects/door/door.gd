@@ -1,12 +1,14 @@
-extends StaticBody2D
+class_name Door
+extends Node2D
 
+signal door_unlocked
+signal door_opened
 
-@export var next_scene: PackedScene
 @export var required_item: Item
 @export var no_item_text: Array[String] = ["Nothing here!"]
-@export var with_item_text: Array[String] = ["I'm free!"]
 
 @onready var _interactable: Interactable = $Interactable
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
     var e: int
@@ -20,10 +22,12 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 
     if not inventory.has(required_item):
         interactor.player.get_bubble().say(no_item_text)
-        e = get_tree().change_scene_to_packed(next_scene)
         assert(e == 0)
         return
 
     inventory.remove_item(required_item)
 
-    interactor.player.get_bubble().say(with_item_text)
+    _animation_player.play("opening")
+    door_unlocked.emit()
+    await _animation_player.animation_finished
+    door_opened.emit()
