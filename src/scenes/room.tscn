@@ -744,7 +744,7 @@ y_sort_enabled = true
 [node name="Door" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_kf8lf")]
 position = Vector2(114, 17)
 
-[node name="Drawer2" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_5mrjc")]
+[node name="Safe" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_5mrjc")]
 position = Vector2(10, -39)
 
 [node name="Drawer" parent="NavigationRegion2D/Sorting" instance=ExtResource("2_rlaii")]
