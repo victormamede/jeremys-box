@@ -47,4 +47,5 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Click stuff to interact, try to find a way out"
 label_settings = SubResource("LabelSettings_dtpc1")
-visible_ratio = -0.0217391
+visible_characters = 0
+visible_ratio = 0.0

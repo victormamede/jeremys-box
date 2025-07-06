@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh7qen4y4eqvx"]
+
+[ext_resource type="Script" uid="uid://vuf0hf2crhxo" path="res://src/objects/flower_pot_big/flower_pot.gd" id="1_cw26t"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="5_7wnaa"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="6_u306s"]
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="7_qkaav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
+atlas = ExtResource("6_u306s")
+region = Rect2(240, 240, 32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3x2q"]
+size = Vector2(23.6761, 33.8838)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
+size = Vector2(17.7571, 5.9795)
+
+[node name="FlowerPot" type="StaticBody2D"]
+scale = Vector2(1.01368, 1.00343)
+script = ExtResource("1_cw26t")
+text = Array[String](["there's nothing here"])
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("5_7wnaa")]
+z_index = 1
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = -27.0
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.986505, -7.97265)
+texture = SubResource("AtlasTexture_fi46f")
+
+[node name="Interactable" parent="." instance=ExtResource("7_qkaav")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(2.35201e-07, -13.9521)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i3x2q")
+debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.70402e-07, 0)
+scale = Vector2(1, 0.999999)
+shape = SubResource("RectangleShape2D_02dl4")

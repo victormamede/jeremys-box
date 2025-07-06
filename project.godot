@@ -10,11 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Mystery"
+config/name="Jeremy's Box"
 run/main_scene="uid://b7dmylcitcvjq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.129558, 0.129558, 0.129558, 1)
+boot_splash/image="uid://b2yw7hkdj5dr6"
+config/icon="uid://bd2g2et6p1k4b"
+config/windows_native_icon="res://icon.ico"
 
 [debug]
 

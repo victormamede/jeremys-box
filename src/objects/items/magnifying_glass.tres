@@ -5,11 +5,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbmbv"]
 atlas = ExtResource("2_8m65p")
-region = Rect2(48, 16, 16, 16)
+region = Rect2(48, 32, 16, 16)
 
 [resource]
 script = ExtResource("1_2h5bs")
 name = "Magnifying Glass"
 texture = SubResource("AtlasTexture_fbmbv")
-hint_text = Array[String](["This might be useful"])
+hint_text = Array[String](["I can use this to see tiny things"])
 metadata/_custom_type_script = "uid://cw1pc34hmbof8"

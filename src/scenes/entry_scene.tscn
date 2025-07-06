@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://bncktdpwdiyek"]
+[gd_scene load_steps=23 format=4 uid="uid://bncktdpwdiyek"]
 
 [ext_resource type="Script" uid="uid://mx43ksaw1jap" path="res://src/scenes/cinematic.gd" id="1_3old3"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_44qx1"]
 [ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="2_6enyy"]
 [ext_resource type="Script" uid="uid://ddvnx781ft1fo" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="5_3old3"]
+[ext_resource type="Script" uid="uid://c4lnaoeh24nxe" path="res://src/scenes/vignette.gd" id="5_a8pbs"]
 [ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="10_46vqm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3cfgd"]
@@ -199,13 +200,13 @@ _data = {
 &"opened": SubResource("Animation_3pvgp")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dkejk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3pvgp"]
 shader = ExtResource("10_46vqm")
-shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_intensity = 0.8
 shader_parameter/vignette_opacity = 0.5
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+shader_parameter/vignette_rgb = Color(0.0538649, 0.0734638, 0.108114, 1)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c46gk"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_70gmu"]
 
 [sub_resource type="Animation" id="Animation_3old3"]
 length = 0.001
@@ -385,6 +386,7 @@ tile_map_data = PackedByteArray("AAAEAAEAAQADAAgAAAAEAAAAAQADAAgAAAAEAP//AQADAAg
 tile_set = SubResource("TileSet_kmhfv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.845, 1.845)
 editor_draw_limits = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -428,13 +430,15 @@ position = Vector2(-72, 18)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Vignette" type="TextureRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_dkejk")
+material = SubResource("ShaderMaterial_3pvgp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_c46gk")
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_70gmu")
+script = ExtResource("5_a8pbs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

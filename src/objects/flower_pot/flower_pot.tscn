@@ -1,12 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk17i0sw5kfim"]
+[gd_scene load_steps=13 format=3 uid="uid://bk17i0sw5kfim"]
 
 [ext_resource type="Script" uid="uid://dttn231ntsbuc" path="res://src/objects/flower_pot/flower_pot.gd" id="1_f0wq6"]
 [ext_resource type="Resource" uid="uid://cutntr2ie4sm4" path="res://src/objects/items/magnifying_glass.tres" id="2_oiqex"]
-[ext_resource type="Script" uid="uid://cw1pc34hmbof8" path="res://src/objects/items/item.gd" id="2_sb3w7"]
+[ext_resource type="Script" uid="uid://7s1gsr7f0gj7" path="res://src/objects/flower_pot/required_item.gd" id="2_sb3w7"]
 [ext_resource type="Resource" uid="uid://dcu52lmfkmajx" path="res://src/objects/items/note.tres" id="3_350n8"]
 [ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_whtve"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_3qa8t"]
 [ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="5_086i4"]
+
+[sub_resource type="Resource" id="Resource_350n8"]
+script = ExtResource("2_sb3w7")
+item = ExtResource("3_350n8")
+text = Array[String](["just a normal flower pot"])
+metadata/_custom_type_script = "uid://7s1gsr7f0gj7"
+
+[sub_resource type="Resource" id="Resource_7pipl"]
+script = ExtResource("2_sb3w7")
+item = ExtResource("2_oiqex")
+text = Array[String](["I see something written", "but it's too small to read"])
+metadata/_custom_type_script = "uid://7s1gsr7f0gj7"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
 atlas = ExtResource("4_3qa8t")
@@ -21,9 +33,8 @@ size = Vector2(5.02293, 2.0205)
 [node name="FlowerPot" type="StaticBody2D"]
 scale = Vector2(1.01368, 1.00343)
 script = ExtResource("1_f0wq6")
-required_items = Array[ExtResource("2_sb3w7")]([ExtResource("3_350n8"), ExtResource("2_oiqex")])
+required_items = Array[ExtResource("2_sb3w7")]([SubResource("Resource_350n8"), SubResource("Resource_7pipl")])
 has_item_text = Array[String](["there is something written", "the safe code is 583"])
-no_item_text = Array[String](["nothing"])
 
 [node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_whtve")]
 z_index = 1
