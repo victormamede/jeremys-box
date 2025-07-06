@@ -11,6 +11,5 @@ func _ready() -> void:
     assert(i == 0)
 
 func _on_interactable_interacted(interactor: Interactor) -> void:
-    var inventory: Inventory = interactor.player.get_inventory()
-    inventory.add_item(item)
+    interactor.player.get_inventory().add_item(item)
     _interactable.disabled = true

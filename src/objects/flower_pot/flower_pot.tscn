@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk17i0sw5kfim"]
+
+[ext_resource type="Script" uid="uid://dttn231ntsbuc" path="res://src/objects/flower_pot/flower_pot.gd" id="1_f0wq6"]
+[ext_resource type="Resource" uid="uid://cutntr2ie4sm4" path="res://src/objects/items/magnifying_glass.tres" id="2_oiqex"]
+[ext_resource type="Script" uid="uid://cw1pc34hmbof8" path="res://src/objects/items/item.gd" id="2_sb3w7"]
+[ext_resource type="Resource" uid="uid://dcu52lmfkmajx" path="res://src/objects/items/note.tres" id="3_350n8"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_whtve"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_3qa8t"]
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="5_086i4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
+atlas = ExtResource("4_3qa8t")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3x2q"]
+size = Vector2(4.93252, 9.96582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
+size = Vector2(5.02293, 2.0205)
+
+[node name="FlowerPot" type="StaticBody2D"]
+scale = Vector2(1.01368, 1.00343)
+script = ExtResource("1_f0wq6")
+required_items = Array[ExtResource("2_sb3w7")]([ExtResource("3_350n8"), ExtResource("2_oiqex")])
+has_item_text = Array[String](["the safe code is 583"])
+no_item_text = Array[String](["not useful"])
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_whtve")]
+z_index = 1
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = -27.0
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.986505, -4.98291)
+texture = SubResource("AtlasTexture_fi46f")
+
+[node name="Interactable" parent="." instance=ExtResource("5_086i4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(-0.493252, -4.98291)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i3x2q")
+debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.538456, -0.982913)
+scale = Vector2(1, 0.999999)
+shape = SubResource("RectangleShape2D_02dl4")

@@ -34,14 +34,11 @@ position = Vector2(0, -9.96582)
 texture = SubResource("AtlasTexture_fi46f")
 
 [node name="Interactable" parent="." instance=ExtResource("1_02dl4")]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(0, -8.47095)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_huflw")
 debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_02dl4")

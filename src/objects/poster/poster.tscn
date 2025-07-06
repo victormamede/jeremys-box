@@ -54,6 +54,7 @@ _data = {
 script = ExtResource("1_h46cy")
 drop = ExtResource("2_ot5d8")
 required_item = ExtResource("3_ot5d8")
+no_item_text = Array[String](["It's a cool poster"])
 
 [node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("2_h46cy")]
 z_index = 1

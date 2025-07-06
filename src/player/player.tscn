@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://dnj1ej4q72lyj"]
+[gd_scene load_steps=12 format=4 uid="uid://dnj1ej4q72lyj"]
 
 [ext_resource type="Script" uid="uid://6f1srypqkbm1" path="res://src/player/player.gd" id="1_rxibo"]
 [ext_resource type="Script" uid="uid://cj3ifb3uogun3" path="res://src/player/interactor.gd" id="2_rxibo"]
 [ext_resource type="Script" uid="uid://duvyqnp17skis" path="res://src/player/inventory.gd" id="3_244u8"]
+[ext_resource type="PackedScene" uid="uid://f7wh5nno6q8w" path="res://src/player/bubble.tscn" id="5_5f2sf"]
 [ext_resource type="PackedScene" uid="uid://prdgxs8rsmlp" path="res://src/ui/ui.tscn" id="6_jiejy"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_244u8"]
@@ -112,7 +113,6 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_4anbu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../PlayerSprite")
@@ -123,5 +123,19 @@ libraries = {
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("3_244u8")
 
-[node name="UI" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("6_jiejy")]
+[node name="UI" parent="." node_paths=PackedStringArray("player", "inventory") instance=ExtResource("6_jiejy")]
+player = NodePath("..")
 inventory = NodePath("../Inventory")
+
+[node name="Bubble" parent="." instance=ExtResource("5_5f2sf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -31.0
+offset_right = 5.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0

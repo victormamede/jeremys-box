@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bltlxp1wnddiv"]
+[gd_scene load_steps=12 format=4 uid="uid://bltlxp1wnddiv"]
 
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_3cfgd"]
 [ext_resource type="PackedScene" uid="uid://dnj1ej4q72lyj" path="res://src/player/player.tscn" id="2_5q4o7"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d4kwqiv54yy84" path="res://src/objects/poster/poster.tscn" id="3_3cfgd"]
 [ext_resource type="Script" uid="uid://18138x2kx1fp" path="res://src/coordinator.gd" id="4_3cfgd"]
 [ext_resource type="PackedScene" uid="uid://nlj7i32av4t0" path="res://src/objects/bed/bed.tscn" id="5_kmhfv"]
+[ext_resource type="PackedScene" uid="uid://bk17i0sw5kfim" path="res://src/objects/flower_pot/flower_pot.tscn" id="6_rlaii"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5q4o7"]
-vertices = PackedVector2Array(115, -31, 115, -57, 165, -100.102, 165, 101.891, -160.109, 98.1016, 73, -31, 28.1484, -32.9531, 73, -57, -8.03906, -32.9531, -162.867, -103.891, -8.03906, -73, 28.1484, -73)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 6, 4), PackedInt32Array(8, 4, 9, 10), PackedInt32Array(10, 9, 2, 11), PackedInt32Array(11, 2, 1, 7), PackedInt32Array(6, 11, 7)])
+vertices = PackedVector2Array(35, 39.0313, 165, 101.891, -160.109, 98.1016, 11.9063, 39.0313, 115, -31, 115, -57, 165, -100.102, 73, -31, 35, 19, 28.1484, -32.9531, 73, -57, 11.9063, 19, -162.867, -103.891, -8.03906, -32.9531, -8.03906, -73, 28.1484, -73)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 1), PackedInt32Array(7, 4, 1, 0, 8), PackedInt32Array(9, 10, 7, 8, 11), PackedInt32Array(11, 3, 2, 12, 13), PackedInt32Array(13, 9, 11), PackedInt32Array(14, 13, 12), PackedInt32Array(14, 12, 6, 15), PackedInt32Array(15, 6, 5, 10), PackedInt32Array(9, 15, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-172, -113, 174, -109, 174, 111, -169, 107)])
 agent_radius = 9.0
 
@@ -425,6 +426,9 @@ position = Vector2(-97, -47)
 [node name="Bed" parent="NavigationRegion2D/Sorting" instance=ExtResource("5_kmhfv")]
 position = Vector2(10, -53)
 scale = Vector2(1.01368, 1.00343)
+
+[node name="FlowerPot" parent="NavigationRegion2D/Sorting" instance=ExtResource("6_rlaii")]
+position = Vector2(24, 30)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true

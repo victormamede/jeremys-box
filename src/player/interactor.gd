@@ -14,7 +14,7 @@ func interact(interactable: Interactable) -> void:
         await _current_interacting.on_interaction_finished
         _current_interacting = null
     else:
-        print("Failed to interact")
+        player.get_bubble().say(["Nothing to do"])
 
 func try_cancel_interaction() -> void:
     if _current_interacting == null:

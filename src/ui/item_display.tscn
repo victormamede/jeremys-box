@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://3t0t15q7xt5u"]
+[gd_scene load_steps=7 format=3 uid="uid://3t0t15q7xt5u"]
 
 [ext_resource type="Script" uid="uid://dkep2l7meulni" path="res://src/ui/item_display.gd" id="1_cfobu"]
 [ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_q5oto"]
 [ext_resource type="Texture2D" uid="uid://5nlr2kgpbeit" path="res://src/_assets/item_background.aseprite" id="2_q5oto"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5oto"]
+atlas = ExtResource("2_q5oto")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp0cj"]
+atlas = ExtResource("2_q5oto")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2t5r"]
+atlas = ExtResource("2_q5oto")
+region = Rect2(16, 0, 16, 16)
 
 [node name="ItemDisplay" type="CenterContainer"]
 offset_right = 16.0
@@ -10,10 +22,13 @@ offset_bottom = 16.0
 theme = ExtResource("1_q5oto")
 script = ExtResource("1_cfobu")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Button" type="TextureButton" parent="."]
 layout_mode = 2
-texture = ExtResource("2_q5oto")
+texture_normal = SubResource("AtlasTexture_q5oto")
+texture_pressed = SubResource("AtlasTexture_tp0cj")
+texture_hover = SubResource("AtlasTexture_o2t5r")
 
 [node name="Texture" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2

@@ -11,4 +11,5 @@ region = Rect2(48, 16, 16, 16)
 script = ExtResource("1_2h5bs")
 name = "Magnifying Glass"
 texture = SubResource("AtlasTexture_fbmbv")
+hint_text = Array[String](["This might be useful"])
 metadata/_custom_type_script = "uid://cw1pc34hmbof8"

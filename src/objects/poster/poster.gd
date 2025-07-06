@@ -2,6 +2,7 @@ extends Node2D
 
 @export var drop: PackedScene
 @export var required_item: Item
+@export var no_item_text: Array[String] = ["Nothing here!"]
 
 @onready var _interactable: Interactable = $Interactable
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -16,6 +17,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
     var inventory: Inventory = interactor.player.get_inventory()
 
     if not inventory.has(required_item):
+        interactor.player.get_bubble().say(no_item_text)
         return
 
     inventory.remove_item(required_item)

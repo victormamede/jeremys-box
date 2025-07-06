@@ -11,4 +11,5 @@ region = Rect2(80, 16, 16, 16)
 script = ExtResource("1_yao8v")
 name = "Note"
 texture = SubResource("AtlasTexture_fbmbv")
+hint_text = Array[String](["the note reads as follows:", "check the flower pot", "with the magnifying glass"])
 metadata/_custom_type_script = "uid://cw1pc34hmbof8"

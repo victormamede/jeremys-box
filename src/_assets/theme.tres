@@ -1,6 +1,10 @@
-[gd_resource type="Theme" format=3 uid="uid://c3lqpta5ivpbv"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c3lqpta5ivpbv"]
+
+[ext_resource type="FontFile" uid="uid://bdud8s2mju84u" path="res://src/_assets/font.ttf" id="1_olofb"]
 
 [resource]
+default_font = ExtResource("1_olofb")
+default_font_size = 5
 BoxContainer/constants/separation = 4
 MarginContainer/constants/margin_bottom = 4
 MarginContainer/constants/margin_left = 4

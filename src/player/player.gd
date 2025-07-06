@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var _sprite: Sprite2D = $PlayerSprite
 @onready var _interactor: Interactor = $Interactor
 @onready var _inventory: Inventory = $Inventory
+@onready var _bubble: Bubble = $Bubble
 
 var _target_interactable: Interactable = null
 var _next_position: Vector2 = Vector2.ZERO
@@ -31,6 +32,10 @@ func _ready() -> void:
     _navigation_agent.target_desired_distance = stop_threshold
 
     _next_position = global_position
+
+    var e: int
+    e = _inventory.item_added.connect(func(item: Item) -> void: _bubble.say(item.hint_text))
+    assert(e == 0)
 
 func _process(_delta: float) -> void:
     if is_stopped():
@@ -63,3 +68,6 @@ func is_stopped() -> bool:
 
 func get_inventory() -> Inventory:
     return _inventory
+
+func get_bubble() -> Bubble:
+    return _bubble

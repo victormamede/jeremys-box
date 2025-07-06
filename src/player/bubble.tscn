@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://f7wh5nno6q8w"]
+
+[ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_q0wlo"]
+[ext_resource type="Script" uid="uid://dh6vhkdqe8sg0" path="res://src/player/bubble.gd" id="2_48qbn"]
+[ext_resource type="Texture2D" uid="uid://dtdrax1xn5ipj" path="res://src/player/_assets/bubble.aseprite" id="3_vafnh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jiejy"]
+font_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Bubble" type="MarginContainer"]
+offset_right = 8.0
+offset_bottom = 12.0
+theme = ExtResource("1_q0wlo")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("2_48qbn")
+metadata/_edit_group_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_vafnh")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_jiejy")
+
+[node name="CharacterTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="DisappearTimer" type="Timer" parent="."]
+one_shot = true
