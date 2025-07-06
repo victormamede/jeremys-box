@@ -1,10 +1,15 @@
 class_name Coordinator
 extends Node2D
 
+@export var enabled: bool = true
 @export var player: Player
 @export_flags_2d_physics var interactable_mask: int = 1
 
+
 func _unhandled_input(event: InputEvent) -> void:
+    if not enabled:
+        return
+
     if event is InputEventMouse and event.is_action_pressed("click"):
         var mouse_event: InputEventMouse = event
         var mouse_position: Vector2 = mouse_event.global_position * get_canvas_transform()

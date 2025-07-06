@@ -1,12 +1,14 @@
 @tool
-
 extends Node2D
 
-enum PlayerAnimation {IDLE, WALKING, SCARED}
+enum PlayerAnimation {IDLE, WALKING, SCARED, LYING}
 
 @export var animation: PlayerAnimation = PlayerAnimation.IDLE:
     set(value):
         animation = value
+
+        if not is_node_ready():
+            return
 
         match (animation):
             PlayerAnimation.IDLE:
@@ -15,6 +17,8 @@ enum PlayerAnimation {IDLE, WALKING, SCARED}
                 _animation_player.current_animation = "walk"
             PlayerAnimation.SCARED:
                 _animation_player.current_animation = "scared"
+            PlayerAnimation.LYING:
+                _animation_player.current_animation = "lying"
 
 
 @onready var _bubble: Bubble = $Bubble
