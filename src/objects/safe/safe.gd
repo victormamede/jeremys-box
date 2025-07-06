@@ -26,6 +26,8 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 func _on_numpad_code_entered(code_entered: String) -> void:
     if code_entered == code:
         _current_interactor.player.get_bubble().say(["Nice"])
+        _current_interactor.player.get_inventory().add_item(item)
+        _interactable.disabled = true
     else:
         _current_interactor.player.get_bubble().say(["This is not working"])
 
