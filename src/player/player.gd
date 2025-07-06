@@ -24,6 +24,7 @@ func set_movement_target(movement_target: Vector2) -> void:
 
 func _interact() -> void:
     assert(_target_interactable != null)
+    _interactor.try_cancel_interaction()
     _interactor.interact(_target_interactable)
     _target_interactable = null
 

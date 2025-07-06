@@ -9,8 +9,8 @@ func _ready() -> void:
     value = 0.0
 
     var e: int
-    e = interactable.on_interaction_started.connect(_on_interaction_started)
-    e = interactable.on_interaction_finished.connect(_on_interaction_finished)
+    e = interactable.interaction_started.connect(_on_interaction_started)
+    e = interactable.interaction_finished.connect(_on_interaction_finished)
     assert(e == 0)
 
 func _on_interaction_started() -> void:

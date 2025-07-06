@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://djf2pc7hn3opa"]
+
+[ext_resource type="Script" uid="uid://b846bvx0vk2u4" path="res://src/objects/safe/safe.gd" id="1_8v07o"]
+[ext_resource type="Resource" uid="uid://bmefbs53syrct" path="res://src/objects/items/key.tres" id="2_ue0g6"]
+[ext_resource type="PackedScene" uid="uid://ccaihnur4q1b7" path="res://src/objects/interactable_progress_indicator.tscn" id="3_8nwus"]
+[ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="4_ltql8"]
+[ext_resource type="PackedScene" uid="uid://btmvaypfw8m8l" path="res://src/objects/interactable.tscn" id="5_16qs1"]
+[ext_resource type="PackedScene" uid="uid://dl3ibyt8p3x7u" path="res://src/objects/safe/numpad_ui.tscn" id="5_tkrnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi46f"]
+atlas = ExtResource("4_ltql8")
+region = Rect2(192, 64, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huflw"]
+size = Vector2(12.9552, 15.9453)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02dl4"]
+size = Vector2(12.9552, 3.98633)
+
+[node name="Safe" type="StaticBody2D"]
+scale = Vector2(1.00346, 1.00343)
+script = ExtResource("1_8v07o")
+item = ExtResource("2_ue0g6")
+code = "583"
+
+[node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_8nwus")]
+z_index = 1
+offset_left = -35.8759
+offset_top = -21.9248
+offset_right = 36.1241
+offset_bottom = -17.9248
+interactable = NodePath("../Interactable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5.97949)
+texture = SubResource("AtlasTexture_fi46f")
+
+[node name="Interactable" parent="." instance=ExtResource("5_16qs1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0.498276, -5.97949)
+shape = SubResource("RectangleShape2D_huflw")
+debug_color = Color(0.824482, 0.373783, 0.376582, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.498276, 8.31613e-07)
+shape = SubResource("RectangleShape2D_02dl4")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="NumpadUI" parent="UI" instance=ExtResource("5_tkrnq")]

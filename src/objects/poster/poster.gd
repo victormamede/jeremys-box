@@ -10,7 +10,7 @@ extends Node2D
 func _ready() -> void:
     var i: int
 
-    i = _interactable.on_interacted.connect(_on_interactable_interacted)
+    i = _interactable.interacted.connect(_on_interactable_interacted)
     assert(i == 0)
 
 func _on_interactable_interacted(interactor: Interactor) -> void:

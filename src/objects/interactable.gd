@@ -1,10 +1,10 @@
 class_name Interactable
 extends Area2D
 
-signal on_interaction_started
-signal on_interaction_finished
-signal on_interaction_cancelled
-signal on_interacted(interactor: Interactor)
+signal interaction_started
+signal interaction_finished
+signal interaction_cancelled
+signal interacted(interactor: Interactor)
 
 @export var interaction_time: float = 1.0
 @export var disabled: bool = false
@@ -28,18 +28,18 @@ func interact(interactor: Interactor) -> bool:
         return false
 
     _current_interactor = interactor
-    on_interaction_started.emit()
+    interaction_started.emit()
 
     _timer.start(interaction_time)
     return true
 
 func _on_timer_timeout() -> void:
-    on_interacted.emit(_current_interactor)
-    on_interaction_finished.emit()
+    interacted.emit(_current_interactor)
+    interaction_finished.emit()
     _current_interactor = null
 
 func cancel() -> void:
-    on_interaction_cancelled.emit()
-    on_interaction_finished.emit()
+    interaction_cancelled.emit()
+    interaction_finished.emit()
     _timer.stop()
     _current_interactor = null

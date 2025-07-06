@@ -11,7 +11,7 @@ func interact(interactable: Interactable) -> void:
     var success: bool = _current_interacting.interact(self)
 
     if success:
-        await _current_interacting.on_interaction_finished
+        await _current_interacting.interaction_finished
         _current_interacting = null
     else:
         player.get_bubble().say(["Nothing to do"])
