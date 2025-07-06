@@ -22,7 +22,7 @@ size = Vector2(5.02293, 2.0205)
 scale = Vector2(1.01368, 1.00343)
 script = ExtResource("1_f0wq6")
 required_items = Array[ExtResource("2_sb3w7")]([ExtResource("3_350n8"), ExtResource("2_oiqex")])
-has_item_text = Array[String](["the safe code is 583"])
+has_item_text = Array[String](["there is something written", "the safe code is 583"])
 no_item_text = Array[String](["nothing"])
 
 [node name="InteractableProgressIndicator" parent="." node_paths=PackedStringArray("interactable") instance=ExtResource("3_whtve")]

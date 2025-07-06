@@ -6,15 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bf76bkh7af0ie" path="res://src/objects/poster/poster_drop.tscn" id="2_ot5d8"]
 [ext_resource type="Resource" uid="uid://skxyhv1wwfom" path="res://src/objects/items/lighter.tres" id="3_ot5d8"]
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_bated"]
-_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAAB0AQAAUklGRmwBAABXRUJQVlA4TGABAAAvL8ALEIegNJKt5n+SQmFjTZSNRmboIvahNJKt5ieVeviagmiVIqgCic5SaSRbzSepbFE0gKX/XjINZBDzHwAAAOb+rZG15qQfxRrswkgelHh8LjotsTgfx1cjAMO1AyzJVuNW0jUyRrJB+1/urCh541dE/x24bRtJVuee2VWC9hPuLfieTR7eH+jwmzyOg5rQNo/GgQjY6REIFLZ5OI8QAISw0aPry+d5vO+i7+Oyxznz8E2NgbDskZCAc+zV92XVI53pRBp7tQzqGHu0pASkgYefzutU6ef5RMW9g29h3alBUbBt68yU6jDdtc5EIWJEBusymGcrHg0iQlDTF+axBRgslHSoqBT6TPrkDAZARJuMbohqk1zCyIOwEqzuxbs1YmbOmfOgblVW1aAqq2EwgzgP62atsFslRg4Ehnf7iDFyjNHtpeb75nn8ffmdua77fp7p8C+lUjIdr3/k/l9w")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ot5d8"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAABuAQAAUklGRmYBAABXRUJQVlA4TFkBAAAvL8ALEH+gNJKt5n+SQmFjTZSNRmboIvahNJKt5ieVeviagmiVIqgCic5SaSRbzSepbFE0gKX/XjINZBDzHwAg93+NrDUn/SjWYBdG8qDE43PRaYnF+Ti+GgEYrh2gav+/Ovmdtg394g63cAR3yVaXcEmjaVrDIVnb6rkBKt3dJ/9GdG7g/Pd7jiExov9o27aNNHVSUH9BHlgAQLETqNMA1VYgH6oOmwFDLbIVoO4i9NkLqIDqXsDZw8qxgUGmqRpgAxUVQ/IdKqCygXA4nvGfgHRfRoBiFXEoxBgzTZI1zRA50Ae7n9dUQ9jaO91+gaStvc+jL3pNrq29l5sukvw+oqim34I2NpYD3J5pgei9BJ0vJ4he1ZE3i+F2IUSAGLcj35EB677EbeI6h6VkUv2W7h5OJFhoe8YYUciW2/s7QbLpdpB87WH2kk1mD46ybTI3l012zaZ/iwQA")
 size_override = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ot5d8"]
 size = Vector2(12, 14)
 
 [sub_resource type="Animation" id="Animation_ot5d8"]
-length = 0.63
+length = 0.54
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -22,13 +22,13 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.09, 0.18, 0.27, 0.36, 0.45, 0.54),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.09, 0.18, 0.27, 0.36, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7]
+"values": [1, 2, 3, 4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_h46cy"]
+[sub_resource type="Animation" id="Animation_ccdls"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -47,7 +47,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ccdls"]
 _data = {
 &"burning": SubResource("Animation_ot5d8"),
-&"normal": SubResource("Animation_h46cy")
+&"idle": SubResource("Animation_ccdls")
 }
 
 [node name="Poster" type="Node2D"]
@@ -67,10 +67,9 @@ interactable = NodePath("../Interactable")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -10)
-texture = SubResource("PortableCompressedTexture2D_bated")
+texture = SubResource("PortableCompressedTexture2D_ot5d8")
 hframes = 3
 vframes = 3
-frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -88,7 +87,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://src/objects/poster/_assets/poster.aseprite",
 "source_uid": 6030595455090839328
 }
-metadata/_aseprite_wizard_source_file_hash_ = "8f92bd378e0cf1ee3a88607d9eb78cc8"
+metadata/_aseprite_wizard_source_file_hash_ = "e1062cc3532add3bf84313ecf78a177c"
 
 [node name="Interactable" parent="." instance=ExtResource("1_bated")]
 
@@ -101,4 +100,4 @@ debug_color = Color(0.783135, 0.43474, 3.85046e-07, 0.42)
 libraries = {
 &"": SubResource("AnimationLibrary_ccdls")
 }
-autoplay = "normal"
+autoplay = "idle"
