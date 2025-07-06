@@ -159,7 +159,7 @@ adjustment_color_correction = SubResource("GradientTexture1D_dkejk")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6352"]
 atlas = ExtResource("1_44qx1")
-region = Rect2(48, 176, 16, 16)
+region = Rect2(224, 144, 16, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dkejk"]
 shader = ExtResource("10_46vqm")

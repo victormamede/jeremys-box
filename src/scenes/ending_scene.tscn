@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://catjy0hgudcyc"]
+[gd_scene load_steps=18 format=4 uid="uid://catjy0hgudcyc"]
 
 [ext_resource type="Script" uid="uid://mx43ksaw1jap" path="res://src/scenes/cinematic.gd" id="1_6rq4u"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_a0vpo"]
-[ext_resource type="PackedScene" uid="uid://b7dmylcitcvjq" path="res://src/scenes/main_menu.tscn" id="2_6rq4u"]
 [ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="2_al4qx"]
 [ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="3_6rq4u"]
 [ext_resource type="Script" uid="uid://c4lnaoeh24nxe" path="res://src/scenes/vignette.gd" id="4_i175w"]
@@ -477,7 +476,7 @@ adjustment_color_correction = SubResource("GradientTexture1D_dkejk")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6352"]
 atlas = ExtResource("1_a0vpo")
-region = Rect2(48, 176, 16, 16)
+region = Rect2(224, 144, 16, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dkejk"]
 shader = ExtResource("3_6rq4u")
@@ -765,7 +764,6 @@ _data = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6rq4u")
-next_scene = ExtResource("2_6rq4u")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAEAAQADAAgAAAAEAAAAAQADAAgAAAAEAP//AQADAAgAAAAEAP7/AQANAAwAAAAEAP3/AQANAAsAAAADAAEAAQACAAgAAAADAAAAAQACAAgAAAADAP//AQACAAgAAAADAP7/AQANAAwAAAADAP3/AQANAAsAAAACAAEAAQACAAgAAAACAAAAAQACAAgAAAACAP//AQACAAgAAAACAP7/AQANAAwAAAACAP3/AQANAAsAAAABAAEAAQACAAgAAAABAAAAAQACAAgAAAABAP//AQACAAgAAAABAP7/AQANAAwAAAABAP3/AQANAAsAAAAAAAEAAQACAAgAAAAAAAAAAQACAAgAAAAAAP//AQACAAgAAAAAAP7/AQANAAwAAAAAAP3/AQANAAsAAAD//wEAAQACAAgAAAD//wAAAQACAAgAAAD/////AQACAAgAAAD///7/AQANAAwAAAD///3/AQANAAsAAAD+/wEAAQACAAgAAAD+/wAAAQACAAgAAAD+////AQACAAgAAAD+//7/AQANAAwAAAD+//3/AQANAAsAAAD9/wEAAQACAAgAAAD9/wAAAQACAAgAAAD9////AQACAAgAAAD9//7/AQANAAwAAAD9//3/AQANAAsAAAD8/wEAAQACAAgAAAD8/wAAAQACAAgAAAD8////AQACAAgAAAD8//7/AQANAAwAAAD8//3/AQANAAsAAAD7/wEAAQABAAgAAAD7/wAAAQABAAgAAAD7////AQABAAgAAAD7//7/AQANAAwAAAD7//3/AQANAAsAAAAEAAIAAQADAAkAAAADAAIAAQACAAkAAAACAAIAAQACAAkAAAABAAIAAQACAAkAAAAAAAIAAQACAAkAAAD//wIAAQACAAkAAAD+/wIAAQACAAkAAAD9/wIAAQACAAkAAAD8/wIAAQACAAkAAAD7/wIAAQABAAkAAAD6/wMAAQALAA0AAAD6/wIAAQAJAAwAAAD6/wEAAQAJAAwAAAD6/wAAAQAJAAwAAAD6////AQAJAAwAAAD6//7/AQAJAAwAAAD6//3/AQAJAAwAAAD6//z/AQALAAwAAAAFAAMAAQAMAA0AAAAEAAMAAQALAAsAAAADAAMAAQALAAsAAAACAAMAAQALAAsAAAABAAMAAQALAAsAAAAAAAMAAQALAAsAAAD//wMAAQALAAsAAAD+/wMAAQALAAsAAAD9/wMAAQALAAsAAAD8/wMAAQALAAsAAAD7/wMAAQALAAsAAAAFAPz/AQAMAAwAAAAFAP3/AQAJAAwAAAAFAP7/AQAJAAwAAAAFAP//AQAJAAwAAAAFAAAAAQAJAAwAAAAFAAEAAQAJAAwAAAAFAAIAAQAJAAwAAAD7//z/AQALAAsAAAD8//z/AQALAAsAAAD9//z/AQALAAsAAAD+//z/AQALAAsAAAD///z/AQALAAsAAAAAAPz/AQALAAsAAAABAPz/AQALAAsAAAACAPz/AQALAAsAAAADAPz/AQALAAsAAAAEAPz/AQALAAsAAAA=")
