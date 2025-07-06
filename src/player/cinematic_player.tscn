@@ -1,17 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://dnj1ej4q72lyj"]
+[gd_scene load_steps=8 format=4 uid="uid://c2ykdc0s4v8k7"]
 
-[ext_resource type="Script" uid="uid://6f1srypqkbm1" path="res://src/player/player.gd" id="1_rxibo"]
-[ext_resource type="Script" uid="uid://cj3ifb3uogun3" path="res://src/player/interactor.gd" id="2_rxibo"]
-[ext_resource type="Script" uid="uid://duvyqnp17skis" path="res://src/player/inventory.gd" id="3_244u8"]
-[ext_resource type="PackedScene" uid="uid://f7wh5nno6q8w" path="res://src/player/bubble.tscn" id="5_5f2sf"]
-[ext_resource type="PackedScene" uid="uid://prdgxs8rsmlp" path="res://src/ui/ui.tscn" id="6_jiejy"]
+[ext_resource type="Script" uid="uid://b3v7lwahcnjv1" path="res://src/player/cinematic_player.gd" id="1_56f36"]
+[ext_resource type="PackedScene" uid="uid://f7wh5nno6q8w" path="res://src/player/bubble.tscn" id="5_al1nu"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5f2sf"]
 _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAABkAgAAUklGRlwCAABXRUJQVlA4TE8CAAAvf8AXEIegNpLUBlsoFZOjDrxNNWpDIW0r0k8gjRTCyDGJHJqNY0cYtZGkNh9TPGVRByHIeymTgKDI/9ECAAD8/+dpQsTBklhtj3o8c1YAhPrOc3q03LfoIGYcJMi2WjcSbUuKZYXw9r9cGbn8hHr+UxXRf0hqJAlyonbAR2XjV8hf9cOrtaaqYF1A9C6AYak78K74XQwrZ82q4F1L7rpYOSdHU9617q503RTXkrva1bv3Trxr2V2a86f3meBaeFcpvVJ416K74P9vUkqq4F1L7hLI4a8LeNeauwRDkAmuoHerQ8eP3lXjs+dVepdNyp5nNn5BCVzGuO1gh4kNKm5XZd6tXn/ZboTLDnbYGLOrVreLGAbH4ly1UrBBxe/6X/fwaq2pKnhX9C6AYak78K74XQwrZ82q4F1L7rpYOSdHU9617q503RTXkrva1bv3Trxr2V2a86f3meBaeFcpvVJ416K74P9vUkqq4F1L7hLI4a8LWJfIorvq0PE0wR0rehdbPXj3uruqz1Z/t2px2aRd9jzz7sezRDC4nsNgs96FcIux3+6+amBcZvYcBtuNfFfBEPMzXB/ncjDOve8U3Kv+1z68WlN3CGHJeQs7f8h5ds6aVUGzJrhDutg5J0dXmjXBHdW2bSmlbduUZvHumFrvy/W1Kc2i3WHp3bvRLNodFFrTUnqlKGjWBHdYyZ+CZtFuxCSQw58ghCXnDQznGVQdOsCyHncL+8FnbMZngdkAB8t63B0sLPNwA8962h3s/BEU94PVaohhnecd7JS/picA")
 size_override = Vector2(128, 96)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4anbu"]
-size = Vector2(8, 4)
 
 [sub_resource type="Animation" id="Animation_4anbu"]
 resource_name = "idle"
@@ -70,22 +64,16 @@ _data = {
 &"walk": SubResource("Animation_rxibo")
 }
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 9
-script = ExtResource("1_rxibo")
-movement_speed = 100.0
-acceleration = 0.1
-
-[node name="Interactor" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("2_rxibo")
-player = NodePath("..")
+[node name="Player" type="Node2D"]
+script = ExtResource("1_56f36")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -8)
+position = Vector2(0, -9)
 texture = SubResource("PortableCompressedTexture2D_5f2sf")
 hframes = 4
 vframes = 3
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -108,26 +96,13 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "438234bea2497b216ebf435af94b45ed"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_4anbu")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../PlayerSprite")
 libraries = {
 &"": SubResource("AnimationLibrary_mf2ua")
 }
 
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("3_244u8")
-
-[node name="UI" parent="." node_paths=PackedStringArray("player", "inventory") instance=ExtResource("6_jiejy")]
-player = NodePath("..")
-inventory = NodePath("../Inventory")
-
-[node name="Bubble" parent="." instance=ExtResource("5_5f2sf")]
+[node name="Bubble" parent="." instance=ExtResource("5_al1nu")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

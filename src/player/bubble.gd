@@ -33,6 +33,8 @@ func _say_next_line() -> void:
     _disappear_timer.stop()
     _character_timer.start()
 
+func set_character_speed(speed: float) -> void:
+    _character_timer.wait_time = 1.0 / speed
 
 func _on_character_timer_timeout() -> void:
     _text_label.visible_characters += 1
