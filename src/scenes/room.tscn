@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bltlxp1wnddiv"]
+[gd_scene load_steps=32 format=4 uid="uid://bltlxp1wnddiv"]
 
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_3cfgd"]
 [ext_resource type="Script" uid="uid://csu5x7qs5uynt" path="res://src/scenes/room.gd" id="1_6hss7"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="10_185uh"]
 [ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="10_dkejk"]
 [ext_resource type="Script" uid="uid://c4lnaoeh24nxe" path="res://src/scenes/vignette.gd" id="11_c46gk"]
+[ext_resource type="Script" uid="uid://ddvnx781ft1fo" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="13_i6yl7"]
+[ext_resource type="PackedScene" uid="uid://dhu0cguqb6giq" path="res://src/background_music.tscn" id="14_acx5x"]
+[ext_resource type="PackedScene" uid="uid://cur5njw2ujj6i" path="res://src/tutorial.tscn" id="17_o2a5j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5q4o7"]
 vertices = PackedVector2Array(107, -23, 123.617, -21.0781, 124.352, 39, 121, 39, 39.4297, 21.5469, 73, -23, -21.3125, 53.9297, -15.3516, 38.7891, -8.89063, 54.3438, -55, -23, -23.1016, 20.1719, -22.6484, 21.2266, -71.1016, 20.1719, -119, -3, -119, -27, -90, -27, -101, 39, -119.563, 39, -119.07, -3, -21, -23, -21, -39, -8, -39, -8, -25, 29, -25, 29, -33.9688, 41, -33.9688, 41, -39, 73, -39, 107, -39, 153, -39, 153, -21.9297, 121, 55, 105, 55, 26.6875, 53.9297, 105, 87, -85, 87, -56.8906, 54.3438, -85, 55, -101, 55, -55, -39, -90, -39)
@@ -541,6 +544,9 @@ adjustment_enabled = true
 adjustment_contrast = 1.1
 adjustment_color_correction = SubResource("GradientTexture1D_dkejk")
 
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_acx5x"]
+data = PackedByteArray("SUhIR0dGRkVFRERDQ0JCQUFAQD8/Pj49PTw8Ozs6Ojk5ODg3NzY2NTU0NDMzMjIxMTAwLy8uLi0tLCwsKysqKikpKCgnJycmJiUlJCQjIyIiIiEhICAfHx8eHh0dHBwcGxsaGhkZGRgYFxcWFhYVFRQUFBMTEhISEREQEBAPDw4ODg0NDQwMCwsLCgoJCQkICAgHBwYGBgUFBQQEBAMDAgICAQEB/////v7+/f39/Pz7+/v6+vr5+fn4+Pj39/f29vb19fX09PT08/Pz8vLy8fHx8PDw7+/v7u7u7u3t7ezs7Ovr6+vq6urp6enp6Ojo5+fn5+bm5uXl5eXk5OTj4+Pj4uLi4uHh4eDg4ODf39/f3t7e3t3d3d3c3Nzc29vb29ra2trZ2dnZ2NjY2NfX19fW1tbW1tXV1dXU1NTU09PT09PS0tLS0dHR0dHQ0NDQ0M/Pz8/Ozs7Ozs3Nzc3NzMzMzMzLy8vLy8rKysrKycnJycnIyMjIyMjHx8fHx8bGxsbGxsXFxcXFxMTExMTEw8PDw8PDwsLCwsLCwcHBwcHBwMDAwMDAv7+/v7+/v76+vs5DQkJCQUFBQUBAQD8/Pz4+Pj09PTw8PDs7Ozs6Ojo5OTk4ODg4Nzc3NjY2NTU1NTQ0NDMzMzMyMjIxMTExMDAwLy8vLy4uLi4tLS0sLCwsKysrKyoqKiopKSkoKCgoJycnJyYmJiYlJSUlJCQkJCMjIyMiIiIiISEhISAgICAgHx8fHx4eHh4dHR0dHRwcHBwbGxsbGhoaGhoZGRkZGBgYGBgXFxcXFxYWFhYVFRUVFRQUFBQUExMTExMSEhISEhEREREREBAQEBAPDw8PDw4ODg4ODQ0NDQ0NDAwMDAwLCwsLCwsKCgoKCgkJCQkJCQgICAgICAcHBwcHBgYGBgYGBQUFBQUFBAQEBAQEBAMDAwMDAwICAgICAgEBAQEBAQH////////+/v7+/v7+/f39/f39/fz8/Pz8/Pz7+/v7+/v7+vr6+vr6+vr5+fn5+fn5+Pj4+Pj4+Pj39/f39/f39/b29vb29vb29fX19fX19fX19PT09PT09PTz8/Pz8/Pz8/Py8vLy8vLy8vLy8fHx8fHx8fHx8PDw8PDw8PDw8O/v7+/v7+/v7+/u7u7u7u7u7u7u7e3t7e3t7e3t7e3s7Ozs7Ozs7Ozs7Ozr6+vr6+vr6+vr6+vq6urq6urq6urq6urp6enp6enp6enp6enp6Ojo6Ojo6Ojo6Ojo6Ojn5+fn5+fn5+fn5+fn5+bm5ubm5ubm5ubm5ubm5ubl5eXl5eXl5eXl5eXl5eXl5eTk5OTk5OTk5OTk5OTk5OTk5OPj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eDg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODf39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f397e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Tk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5ebm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ufn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+jo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6urq6urq6urq6urq6urq6urq6urq6urq6urq6urq6urr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+zs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vPz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/j4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/P39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v////////////////////////////////////////////////////////////////////////8BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE=")
+
 [sub_resource type="Animation" id="Animation_dg0mx"]
 length = 0.001
 tracks/0/type = "value"
@@ -627,10 +633,22 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CinematicPlayer/SfxrStreamPlayer2D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_6hss7"]
 resource_name = "start"
-length = 6.0
+length = 8.21
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -638,7 +656,7 @@ tracks/0/path = NodePath("CinematicPlayer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.24),
+"times": PackedFloat32Array(2.16667, 3.40667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(85, -500), Vector2(85, 59)]
@@ -650,7 +668,7 @@ tracks/1/path = NodePath("CinematicPlayer:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.23798, 3.36667),
+"times": PackedFloat32Array(2.16667, 3.40465, 5.53334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [2, 3, 0]
@@ -662,7 +680,7 @@ tracks/2/path = NodePath("CinematicPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.66667, 3.7),
+"times": PackedFloat32Array(3.83334, 5.86667),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["ouch!"],
@@ -679,7 +697,7 @@ tracks/3/path = NodePath("NavigationRegion2D/Sorting/Player:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 6),
+"times": PackedFloat32Array(2.16667, 8.16667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -691,7 +709,7 @@ tracks/4/path = NodePath("Coordinator:enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 6),
+"times": PackedFloat32Array(2.16667, 8.16667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -703,10 +721,36 @@ tracks/5/path = NodePath("CinematicPlayer:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 6),
+"times": PackedFloat32Array(2.16667, 8.16667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CinematicPlayer/SfxrStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Tutorial")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_tutorial"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_185uh"]
@@ -864,16 +908,48 @@ environment = SubResource("Environment_c46gk")
 [node name="CinematicPlayer" parent="." instance=ExtResource("10_185uh")]
 position = Vector2(-88, 50)
 
+[node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="CinematicPlayer"]
+stream = SubResource("AudioStreamWAV_acx5x")
+script = ExtResource("13_i6yl7")
+wave/type = 1
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.0123023
+envelope/punch_time = 0.0
+envelope/decay_time = 0.214043
+frequency/start_frequency = 0.20825
+frequency/min_freq_cutoff = 0.0
+frequency/slide = -0.463625
+frequency/delta_slide = 0.0
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 1.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0
+high_pass_filter/cutoff_sweep = 0.0
+metadata/_custom_type_script = "uid://ddvnx781ft1fo"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_i6yl7")
 }
 autoplay = "start"
 
+[node name="BackgroundMusic" parent="." instance=ExtResource("14_acx5x")]
+process_mode = 3
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Vignette" type="TextureRect" parent="CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_dkejk")
 anchors_preset = 15
 anchor_right = 1.0
@@ -882,6 +958,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_c46gk")
 script = ExtResource("11_c46gk")
+
+[node name="Tutorial" parent="CanvasLayer" instance=ExtResource("17_o2a5j")]
 
 [node name="EndPosition" type="Marker2D" parent="."]
 position = Vector2(128, -62)

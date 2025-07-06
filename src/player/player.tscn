@@ -142,6 +142,7 @@ libraries = {
 script = ExtResource("3_244u8")
 
 [node name="UI" parent="." node_paths=PackedStringArray("player", "inventory") instance=ExtResource("6_jiejy")]
+layer = 2
 player = NodePath("..")
 inventory = NodePath("../Inventory")
 

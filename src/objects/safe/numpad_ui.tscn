@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl3ibyt8p3x7u"]
+[gd_scene load_steps=7 format=4 uid="uid://dl3ibyt8p3x7u"]
 
 [ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_m7m0o"]
 [ext_resource type="Texture2D" uid="uid://dlumex0jq2uqe" path="res://src/objects/safe/_assets/code_background.aseprite" id="2_0c27m"]
 [ext_resource type="Script" uid="uid://c3shgc0luvwqv" path="res://src/objects/safe/numpad.gd" id="2_m3ypj"]
 [ext_resource type="Script" uid="uid://cyhoi8dchtf0l" path="res://src/objects/safe/numpad_ui.gd" id="2_sek07"]
+[ext_resource type="Script" uid="uid://grfwp8nmsesu" path="res://addons/godot_sfxr/SfxrStreamPlayer.gd" id="5_sek07"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_1py8q"]
+data = PackedByteArray("GQwG69zv+Pz+/////////yMeDgfS6vb7/f////////8XJREI3Ob0+v3+////////HSEQCNLr9vv9/////////y0ZDO7e8Pj8/v///////x0hEP7X7ff7/v///////x0hEP7X7ff7/v///////ygcDenh8vn8/v//////ECgTCdPr9vv9////////MRcL2On1+/3+//////8xFwvY6fX7/f7/////CSwVAtjt9/z+//////8dIRDq4vL5/f7/////CSwVAtjt9/z+//////8xFwPY7ff8/v//////MRcD2O33/P7/////ECgT8d/x+fz+/////yMeDtrq9fv9/v///xAoE+vj8vn9/v////8xF/rc7/j8/v////8tGfvd7/j8/v////8xF/Pg8fn8/v///xAoE+bm8/r9/v///yMeDtbs9vv+////ECgT4ej1+/3+////MRft4/L5/f7///8tGfTh8fn8/v///y0Z9OHx+fz+////MRfn5vT6/f7//xAoE9zr9vv9////Ix7+3vD4/P7//wksFeHp9fv9/v//LRnp5/T6/f7//ygc7+Tz+v3+//8jHvfi8vn9/v//Ix734vL5/f7//ygc6uf0+v3+//8xF97s9vv+//8XJQHf8fn8/v//LBnj6vX7/f7/HSH44vL5/f7/ECgL3O/4/P7//zEP3vD4/P7//zEX2u73/P7//zEX2u73/P7/CCwN3fD4/P7/ECgD4PH5/P7/HSHy5vT6/f7/LBnf7Pf7/v8XJfPm9Pr9/v8sGdvu+Pz+/x0h7On1+/3+ECj75PP6/f7/MQ/e8Pj8/v8sGdvu+Pz+/ywR3/D5/P7/LBHf8Pn8/v8xB+Ly+f3+CCz95fP6/f4WJO7p9fv9/iIe4e33/P7/MAfi8vn9/h0h5+v2+/3/MAfi8vn9/iIe3e/4/P4QKO/q9vv9/zD/5vP6/f4nE+Dx+fz+Ih7d7/j8/h0h4u73/P4cIeLu9/z+HCHi7vf8/iIW4fH5/P4nDOTz+v3+LALn9Pr9CCzx6/b7/RYk5O/4/P4nDOTz+v0HLPHr9vv9Ihbh8fn8Byzx6/b7/SIW4fH5/A8o6u33+/4sAuf0+v0cGePy+f0PKObv+Pz+MPPs9vv+LPvq9fv9JwXo9Pr9Ig7l8/r9Ig7l8/r9Ig7l8/r9Ig7l8/r9JwXo9Pr9LPvq9fv9MPPs9vsOJ+Xv+PwcGOPy+f0nBOj0+gYr5/D4/BwR5/T6/Sv17ff7Dijh8fn8J/3r9vsOJ+Hx+fwn/ev2+xUb5PP6/S/u7/j8IQfp9fsOJ+Ly+f0u7u/4/CX96/b7GhDn9PoNHub0+gYq5PP6/S7q8vn9KfHw+Pwp8fD4/Cnx8Pj8KfHw+Pwp8fD5/Cjx8Pn8LOvy+QUo5fP6DB3n9PoTEur1+x4B7vf8J/Hx+QUn5fP6EhLq9vseAe73/Crr8vkSEur2+yL48PgEJub0+hgD7/j8Kuj1+hgD7/j8Kej1+hcD8Pj8Kej1+hz78fkLFOz3+yXu9PoXA/D4BB3r9vsk7vT6G/vx+REL7vgEHev2+yTu9Pob+/L5FgPw+BAK7/gKE+33Axzr9vsm6fX7Iu/0+iLr9vsi6/b7Iuv2+yLr9vsi7Pb7Iuz2+yLs9vse7vcDFe/4CQ3x+Q8F8vkU/fP6Gff1+h3x9vsd7vcJDPH5FP30+hzx9vsd7vcJDPH5E/30+h/s9wgM8fkX9/X7HO74DgTz+hvy9gIT8PgS/fT6G+/4Ev30+hvv+BL99Pob7/gS/fT6G+/4Ev30+hvv+BX09wgH9PoX8fkS+fYCDvP6GvD4Df/2+xXy+RX09wz/9gIN9PoX8fkV9PcM//YCDfT6FvH5FfX4DP/2Ag30+hTz+hbx+Rjw+BT1+BD69wv/9gYG9QEM9PoT8/oV8vkV8vkV8vkU8vkU8vkU8vkU8vkU8vkU8vkU8vkU8vkU8vkU8vkS8/8L9QUF9gr/9w769xL1+BXx+RPz+RH0/wv1BQX2Cf/3Dff5EPT6DfYFAvgO9/kQ9PoN9gUC+A73+RD1+g33BQL4Dfj5D/X7CfkN+PoO9gUB+BD0+gz3Cfz5D/X/B/gN+PoN9gUB+BD0+gz3Cfz5DfYI/PkN9gj8+Qz2CPz5DPYI/PkM9gj8+Qz2CPz5DPYI/PkM9gj8+Qz3C/j+BfgN9gf8+Qr3DvUDAfkL9wr4/gX4DPYH/PoK+A31AwH5C/cK+P4F+Af5CvcH+v8D+gj5CvgH+v8D+gj5CfgH+v8D+gj5CfgH+v8D+gj5CfgH+v8D+gj5CPkJ+An3BvoD/v4C+gb6B/kI+Qj4CfcG+gP+/gL7BvoH+gf5CPgJ+Ab7A/7+AvsG+gb6BvoG+gb6BvoG+gb6BvoG+gb6BvoG+gb6BvoG+gb6BvoF+wX7BfsF+wX7BfsF+wX7AwL+BfsH+Ab5BvoF+gX+AgL+BPsH+Qb5BvoF+gX+AgL+BPsH+Qb5BvoF+gX+AgL+BPsG+Qb6BfoEAf4G+QX6BAH+BvkF+gQB/gb5BfoEAf4G+QX6BAH+BvkF+gQB/gX5BfsEAf4F+gX7BAH+BfoE+wQD+gP+/wP7AwL9A/wDBPsD/v8D+wMC/QP8AgT7A/7/A/wDAv0D/AIE+wP+/wP8AwL9A/wCA/sD/v8D/AIB/QP+/wP+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wL+/wIC/AECAf4CAv7/AgL8AQIB/gEC/v8CAvwBAgH+AQL+/wIC/QECAf4BAv7/AQL9AQIB/gEC/v8BAv0BAQH+AQL+/wEC/QEBAf4BAQH+/wEBAf7/AQEB/v8BAQH+/wEBAf7/AQEB/v8BAQH+/wEBAf7/AQEB/v8BAQH+/wEBAf//AQEB//8BAQH//wEBAf//AQEB//8BAQH//wEB//8B//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEBAQEB//8BAQEB")
 
 [node name="NumpadUI" type="CenterContainer"]
 process_mode = 3
@@ -52,3 +56,33 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 script = ExtResource("2_m3ypj")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_1py8q")
+script = ExtResource("5_sek07")
+wave/type = 0
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.0974423
+envelope/punch_time = 0.0
+envelope/decay_time = 0.116201
+frequency/start_frequency = 0.859358
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.490047
+frequency/delta_slide = 0.0
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.564371
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.957272
+high_pass_filter/cutoff_sweep = 0.0
+metadata/_custom_type_script = "uid://grfwp8nmsesu"

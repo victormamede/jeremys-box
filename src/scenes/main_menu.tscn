@@ -59,6 +59,7 @@ animation = 2
 position = Vector2(54, 65)
 scale = Vector2(11.2422, 11.2422)
 flip_h = true
+frame = 10
 
 [node name="AnimationPlayer" parent="Player" index="1"]
 autoplay = "idle"

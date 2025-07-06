@@ -7,6 +7,7 @@ signal code_entered(code: String)
 
 @onready var _numpad: Numpad = %Numpad
 @onready var _visor: Label = %Visor
+@onready var _sound: AudioStreamPlayer = $SoundPlayer
 
 var _current_code: String = ""
 
@@ -20,6 +21,7 @@ func _ready() -> void:
     assert(e == 0)
 
 func _on_numpad_button_pressed(number: int) -> void:
+    _sound.play()
     _current_code += str(number)
     _visor.text = _current_code
 

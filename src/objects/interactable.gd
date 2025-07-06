@@ -20,6 +20,13 @@ func _ready() -> void:
     e = _timer.timeout.connect(_on_timer_timeout)
     assert(e == 0)
 
+    e = mouse_entered.connect(Input.set_default_cursor_shape.bind(Input.CursorShape.CURSOR_POINTING_HAND))
+    assert(e == 0)
+
+    e = mouse_exited.connect(Input.set_default_cursor_shape.bind(Input.CursorShape.CURSOR_ARROW))
+    assert(e == 0)
+
+
 func interact(interactor: Interactor) -> bool:
     if disabled:
         return false

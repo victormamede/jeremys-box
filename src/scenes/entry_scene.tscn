@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=4 uid="uid://bncktdpwdiyek"]
+[gd_scene load_steps=22 format=4 uid="uid://bncktdpwdiyek"]
 
 [ext_resource type="Script" uid="uid://mx43ksaw1jap" path="res://src/scenes/cinematic.gd" id="1_3old3"]
 [ext_resource type="Texture2D" uid="uid://d2vu4rd2etnf4" path="res://src/_assets/tilesets.aseprite" id="1_44qx1"]
 [ext_resource type="PackedScene" uid="uid://c2ykdc0s4v8k7" path="res://src/player/cinematic_player.tscn" id="2_6enyy"]
+[ext_resource type="Script" uid="uid://ddvnx781ft1fo" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="5_3old3"]
 [ext_resource type="Shader" uid="uid://dm5ytut7ex2dv" path="res://src/shaders/vignette.gdshader" id="10_46vqm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3cfgd"]
@@ -256,6 +257,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SfxrStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_c6352"]
 resource_name = "main"
@@ -341,12 +354,27 @@ tracks/5/keys = {
 "clips": PackedStringArray("closed", "opened"),
 "times": PackedFloat32Array(0, 6.93333)
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SfxrStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6.96666),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8pbs"]
 _data = {
 &"RESET": SubResource("Animation_3old3"),
 &"main": SubResource("Animation_c6352")
 }
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_a8pbs"]
+data = PackedByteArray("JSQkJCQjIyMiIiIiISEhISDy19fX2NjY2dnZ2tra29vb29zc3N3d3d3e3t7e39/f3+DyKSkpKSgoKCcnJyYmJiUlJSXt29vc3Nzc3d3d3t7e3t/f39/g4ODg4eHh4eLi4uLj4+P+LSwsLCsrKyoqKikpKSgoKCfn3t7e39/f3+Dg4ODh4eHh4uLi4uPj4+Pk5OTk5OXl5eULLy4uLi0tLSwsLCsrKyoqKinf4ODg4eHh4eHi4uLi4+Pj4+Tk5OTk5eXl5ebm5ubm5+cVMDAvLy8uLi4tLSwsLCsrKyHh4eHi4uLi4uPj4+Pk5OTk5OXl5eXm5ubm5ufn5+fn6OgfMTEwMDAvLy4uLi0tLSwsLBni4uLi4+Pj4+Pk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6OgpMjExMDAwLy8vLi4tLS0sLBHi4uPj4+Pk5OTk5OXl5eXm5ubm5ufn5+fn6Ojo6Ojo6ekyMjIxMTAwMC8vLy4uLS0tLAjj4+Pj5OTk5OTl5eXl5ebm5ubm5+fn5+fo6Ojo6Onp6fIzMjIxMTEwMDAvLy4uLi0tLf7j4+Pk5OTk5OXl5eXl5ubm5ufn5+fn5+jo6Ojo6enp6fszMjIyMTEwMDAvLy8uLi0tLfXj4+Tk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6Ojp6enp6QYzMjIyMTEwMDAvLy8uLi0tLezj4+Tk5OTl5eXl5ebm5ubm5+fn5+fo6Ojo6Onp6enp6Q8zMjIyMTExMDAvLy8uLi4tLePj5OTk5OTl5eXl5ebm5ubm5+fn5+fo6Ojo6Onp6enp6RgzMjIyMTExMDAvLy8uLi4tJOPj5OTk5OTl5eXl5ubm5ubn5+fn5+jo6Ojo6Onp6enp6iEzMjIyMTEwMDAvLy8uLi4tG+Pj5OTk5OXl5eXl5ubm5ubn5+fn5+jo6Ojo6enp6enp6iozMjIyMTEwMDAvLy8uLi0tEuPj5OTk5OXl5eXl5ubm5ubn5+fn5+jo6Ojo6enp6enp6jMzMjIyMTEwMDAvLy8uLi0tCOPk5OTk5OXl5eXl5ubm5ubn5+fn5+jo6Ojo6enp6enp8zMzMjIyMTEwMDAvLy8uLi0t/uPk5OTk5OXl5eXm5ubm5ufn5+fn6Ojo6Ojo6enp6enq/DMzMjIyMTEwMDAvLy4uLi0t9ePk5OTk5OXl5eXm5ubm5ufn5+fn6Ojo6Ojo6enp6enqBjMzMjIxMTEwMDAvLy4uLi0t7OPk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6Ojp6enp6enqDzMzMjIxMTEwMDAvLy4uLi0t4+Pk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6Ojp6enp6enqGDMzMjIxMTEwMC8vLy4uLi0k4+Pk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6Ojp6enp6enqITMzMjIxMTEwMC8vLy4uLi0b4+Pk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6Ojp6enp6enqKjMyMjIxMTEwMC8vLy4uLi0S4+Tk5OTk5eXl5eXm5ubm5ufn5+fn6Ojo6Ojp6enp6enqMzMyMjIxMTAwMC8vLy4uLS0J4+Tk5OTk5eXl5eXm5ubm5+fn5+fn6Ojo6Ojp6enp6erzMzIyMTExMDAvLy4uLS0tLCz+5OXl5eXm5ubm5+fn5+jo6Ojo6enp6erq6urq6+vr6+v8Ly4uLS0tLCwrKysqKikpKSj25+fn5+jo6Ojo6enp6erq6urq6+vr6+vs7Ozs7O3t7e0FKyoqKikpKCgoJycmJiYlJSXw6enp6erq6urr6+vr6+zs7Ozs7e3t7e3t7u7u7u7v7+8MJyYmJiUlJCQkIyMjIiIiISHr6+vr7Ozs7Ozt7e3t7e7u7u7u7u/v7+/v8PDw8PDw8PEQIyIiIiEhISAgIB8fHx4eHhjt7e7u7u7u7u/v7+/v7/Dw8PDw8PHx8fHx8fLy8vLy8vIUHx4eHh0dHRwcHBwbGxsaGhDv8PDw8PDw8fHx8fHx8fLy8vLy8vPz8/Pz8/Pz9PT09PQWGxoaGhkZGRkYGBgYFxcXFwny8vLy8vLz8/Pz8/Pz9PT09PT09PT19fX19fX19fb29vYXFxYWFhYVFRUVFBQUFBMTEwT09PT09PX19fX19fX19vb29vb29vb29/f39/f39/f3+PsTExISEhIRERERERAQEBAQD//29vb29/f39/f39/f3+Pj4+Pj4+Pj4+Pn5+fn5+fn5+f4PDw4ODg4ODQ0NDQ0NDAwMDP34+Pn5+fn5+fn5+fn6+vr6+vr6+vr6+vr6+/v7+/v7+wILCwoKCgoKCgoJCQkJCQkJCPz7+/v7+/v7+/v7+/v8/Pz8/Pz8/Pz8/Pz8/Pz9/f39/QIHBwYGBgYGBgYGBgUFBQUFBf39/f39/f39/f39/f7+/v7+/v7+/v7+/v7+/v7+/v7+/gIDAwMCAgICAgICAgICAgEBAf//////////////AQ==")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3old3")
@@ -370,7 +398,6 @@ texture_filter = 1
 position = Vector2(0.305, 6.305)
 texture = SubResource("PortableCompressedTexture2D_c6352")
 hframes = 2
-frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -414,3 +441,34 @@ libraries = {
 &"": SubResource("AnimationLibrary_a8pbs")
 }
 autoplay = "main"
+
+[node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(26, 23)
+stream = SubResource("AudioStreamWAV_a8pbs")
+script = ExtResource("5_3old3")
+wave/type = 0
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.110296
+envelope/punch_time = 0.0
+envelope/decay_time = 0.0802351
+frequency/start_frequency = 0.49426
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.0
+frequency/delta_slide = 0.0
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.31659
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.1
+high_pass_filter/cutoff_sweep = 0.0
+metadata/_custom_type_script = "uid://ddvnx781ft1fo"

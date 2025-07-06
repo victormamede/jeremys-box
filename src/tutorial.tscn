@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cur5njw2ujj6i"]
+
+[ext_resource type="Theme" uid="uid://c3lqpta5ivpbv" path="res://src/_assets/theme.tres" id="1_0n21e"]
+[ext_resource type="Script" uid="uid://b3o48fvp2kw0k" path="res://tutorial.gd" id="2_ui2h3"]
+[ext_resource type="Texture2D" uid="uid://dtdrax1xn5ipj" path="res://src/player/_assets/bubble.aseprite" id="3_ui2h3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtpc1"]
+font_size = 5
+
+[node name="Tutorial" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0n21e")
+script = ExtResource("2_ui2h3")
+
+[node name="HideTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CenterContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3_ui2h3")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Click stuff to interact, try to find a way out"
+label_settings = SubResource("LabelSettings_dtpc1")
+visible_ratio = -0.0217391
